@@ -41,10 +41,14 @@ export default function FacilitiesPage() {
                       <h4>{p.name}</h4>
                       <p className="ds">{p.desc}</p>
                       <div className="row">
-                        {/* TODO: 스펙시트 PDF 업로드 후 링크 연결 */}
-                        <a href="#" className="a-spec">
-                          스펙시트
-                        </a>
+                        {/* TODO: 스펙시트 PDF 업로드 후 <a download>로 교체 */}
+                        <span
+                          className="a-spec a-disabled"
+                          title="스펙시트는 견적 회신 시 함께 보내드립니다 (PDF 준비중)"
+                          aria-disabled="true"
+                        >
+                          스펙시트 준비중
+                        </span>
                         <Link href="/contact" className="a-quote">
                           견적
                         </Link>

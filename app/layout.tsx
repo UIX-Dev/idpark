@@ -25,6 +25,10 @@ export const metadata: Metadata = {
       '자체 공장 생산 · 협회 공인인증 · 전국 납품·시공. 파크골프 인프라 파트너 아이디파크.',
     type: 'website',
   },
+  icons: {
+    icon: [{ url: '/brand/idpark-favicon.png', type: 'image/png' }],
+    apple: [{ url: '/brand/idpark-favicon.png' }],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

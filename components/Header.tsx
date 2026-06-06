@@ -21,8 +21,9 @@ export default function Header() {
   return (
     <header>
       <div className="wrap gnb">
-        <Link href="/" className="logo" onClick={() => setOpen(false)}>
-          IDPARK <span className="sub">아이디파크</span>
+        <Link href="/" className="logo" onClick={() => setOpen(false)} aria-label="아이디파크 IDPARK 홈">
+          <img src="/brand/idpark-logo.png" alt="IDPARK" width={120} height={30} />
+          <span className="sub">아이디파크</span>
         </Link>
         <button
           className="hamburger"
