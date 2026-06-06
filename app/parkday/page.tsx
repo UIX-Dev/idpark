@@ -33,9 +33,9 @@ function PlayIcon() {
 }
 
 const STORES = [
-  { sub: '브라우저에서 바로', name: '웹으로 시작', icon: <GlobeIcon /> },
-  { sub: 'iPhone · iPad', name: 'App Store', icon: <AppleIcon /> },
-  { sub: 'Android', name: 'Google Play', icon: <PlayIcon /> },
+  { sub: '브라우저에서 바로', name: '웹으로 시작', icon: <GlobeIcon />, href: '/parkday-app/index.html' },
+  { sub: 'iPhone · iPad', name: 'App Store', icon: <AppleIcon />, href: '#' },
+  { sub: 'Android', name: 'Google Play', icon: <PlayIcon />, href: '#' },
 ];
 
 const FEATURES = [
@@ -71,7 +71,7 @@ export default function ParkdayPage() {
               <div className="pd-stores">
                 {STORES.map((s) => (
                   // TODO: 서비스 오픈 시 실제 스토어/웹 URL로 교체
-                  <a href="#" className="pd-store" key={s.name}>
+                  <a href={s.href} className="pd-store" target={s.href.startsWith('/') ? '_blank' : undefined} rel="noreferrer" key={s.name}>
                     {s.icon}
                     <span>
                       <small>{s.sub}</small>
@@ -83,52 +83,25 @@ export default function ParkdayPage() {
               <p className="pd-storenote">* 웹·앱 어디서나 같은 화면 · 서비스 오픈 준비 중</p>
             </div>
 
-            {/* 앱 미리보기 (목업 기반) */}
-            <div className="pd-phone" aria-hidden="true">
-              <div className="pd-screen">
-                <div className="pd-apphead">
-                  <b>파크데이</b>
-                  <span>PARKDAY · 전화 한 통이면 됩니다</span>
-                </div>
-                <div className="pd-appbody">
-                  <div className="pd-callbtn">📞 전화로 주문하기</div>
-                  <div className="pd-bigbtn">
-                    <span className="e">📋</span>
-                    <span>
-                      <b>한눈에 보는 단가표</b>
-                      <small>클럽·공·가방 가격 비교</small>
-                    </span>
-                  </div>
-                  <div className="pd-bigbtn">
-                    <span className="e">👥</span>
-                    <span>
-                      <b>우리 동네 모임</b>
-                      <small>근처 동호회 일정 보기</small>
-                    </span>
-                  </div>
-                  <div className="pd-bigbtn">
-                    <span className="e">⛳</span>
-                    <span>
-                      <b>내 주변 파크골프장</b>
-                      <small>위치·홀 수·이용료</small>
-                    </span>
-                  </div>
-                </div>
-                <div className="pd-tabbar">
-                  <div className="on">
-                    <span className="ti">🏠</span>홈
-                  </div>
-                  <div>
-                    <span className="ti">📋</span>단가표
-                  </div>
-                  <div>
-                    <span className="ti">👥</span>모임
-                  </div>
-                  <div>
-                    <span className="ti">😊</span>내 정보
-                  </div>
+            {/* 실제 파크데이 앱 임베드 (live) */}
+            <div className="pd-phonewrap">
+              <div className="pd-phone">
+                <div className="pd-screen">
+                  <iframe
+                    src="/parkday-app/index.html"
+                    title="파크데이 앱 미리보기"
+                    loading="lazy"
+                  />
                 </div>
               </div>
+              <a
+                className="pd-openapp"
+                href="/parkday-app/index.html"
+                target="_blank"
+                rel="noreferrer"
+              >
+                앱 전체 화면으로 열기 ↗
+              </a>
             </div>
           </div>
         </div>
@@ -177,7 +150,7 @@ export default function ParkdayPage() {
           <p>오늘 한 바퀴, 가볍게 나가볼까요?</p>
           <div className="pd-stores" style={{ justifyContent: 'center' }}>
             {STORES.map((s) => (
-              <a href="#" className="pd-store" key={s.name}>
+              <a href={s.href} className="pd-store" target={s.href.startsWith('/') ? '_blank' : undefined} rel="noreferrer" key={s.name}>
                 {s.icon}
                 <span>
                   <small>{s.sub}</small>

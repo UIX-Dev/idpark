@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>파크데이 — 내 주변 파크골프, 전화 한 통 주문</title>
+<meta name="description" content="내 동네 파크골프장 찾기·예약 안내·용품 단가표·동호회. 시니어를 위해 크게, 간단하게 만든 파크골프 앱 파크데이.">
+<meta name="theme-color" content="#00B468">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/svg+xml" href="assets/symbol.svg">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+<!-- ═══ 온보딩: 당근식 동네 설정 ═══ -->
+<div class="onboard" id="onboard">
+  <div class="inner">
+    <div class="ob-badge"><img src="assets/symbol.svg" alt="파크데이" width="64" height="64"></div>
+    <h1>파크데이</h1>
+    <p>기분 좋은 한 바퀴, 시작해 볼까요?<br>먼저 내 동네부터 알려주세요.</p>
+    <button class="btn btn-gold" onclick="App.setLocation()">📍 내 동네 설정하기</button>
+    <button class="skip" onclick="App.skipLocation()">나중에 할게요 (기본: 고양시 덕양구)</button>
+  </div>
+</div>
+
+<div id="app">
+
+  <!-- ═══ 헤더 ═══ -->
+  <header class="top">
+    <span class="logo-chip"><img src="assets/symbol.svg" alt="" width="28" height="28"></span>
+    <div>
+      <div class="brand">파크데이</div>
+      <div class="by">PARKDAY <span class="by-op">by <a href="https://idpark.vercel.app/" target="_blank" rel="noopener noreferrer">IDPARK</a></span></div>
+    </div>
+    <button class="loc" onclick="App.setLocation()">📍 <span id="locName">동네 설정</span></button>
+  </header>
+
+  <!-- ═══ ① 예약(홈) ═══ -->
+  <section class="view on" id="v-home">
+    <div class="notice-strip" id="noticeStrip"></div>
+    <h2 class="vt">내 주변 파크골프장</h2>
+    <p class="vd"><b id="locName2">동네</b> 기준 가까운 순서예요</p>
+    <div class="chips" id="radiusChips">
+      <button class="chip on" data-km="10" onclick="App.setRadius(10,this)">10km</button>
+      <button class="chip" data-km="30" onclick="App.setRadius(30,this)">30km</button>
+      <button class="chip" data-km="9999" onclick="App.setRadius(9999,this)">전국</button>
+    </div>
+    <div id="courseList"></div>
+  </section>
+
+  <!-- ═══ 구장 상세 ═══ -->
+  <section class="view" id="v-detail"></section>
+
+  <!-- ═══ 예약 확인증 ═══ -->
+  <section class="view" id="v-ticket"></section>
+
+  <!-- ═══ ② 상품 ═══ -->
+  <section class="view" id="v-shop">
+    <h2 class="vt">한눈에 보는 단가표</h2>
+    <p class="vd">표시 가격이 전부예요 · 전화로 바로 주문돼요</p>
+    <div class="chips" id="shopChips">
+      <button class="chip on" onclick="App.shopFilter('all',this)">전체</button>
+      <button class="chip" onclick="App.shopFilter('club',this)">클럽</button>
+      <button class="chip" onclick="App.shopFilter('ball',this)">공</button>
+      <button class="chip" onclick="App.shopFilter('bag',this)">가방</button>
+      <button class="chip" onclick="App.shopFilter('acc',this)">소품</button>
+    </div>
+    <div class="infobox">✅ 아이디파크 자체 공장 직영 — 협회 공인인증 제품</div>
+    <div id="shopList"></div>
+    <button class="btn btn-call" onclick="App.call('07074644466')">📞 전화로 주문·상담 (070-7464-4466)</button>
+  </section>
+
+  <!-- ═══ ③ 클럽(소셜) ═══ -->
+  <section class="view" id="v-club">
+    <h2 class="vt">우리 동네 클럽</h2>
+    <p class="vd">함께 치면 더 즐겁습니다</p>
+    <div id="clubList"></div>
+    <div class="card" style="text-align:center">
+      <p style="font-size:calc(15px * var(--fs));color:var(--sub);margin-bottom:12px">우리 클럽도 파크데이에 올리고 싶다면</p>
+      <button class="btn btn-line" onclick="App.call('07074644466')">📞 클럽 등록 문의</button>
+    </div>
+  </section>
+
+  <!-- ═══ 클럽 홈(상세: 공지/벙개·정모/갤러리) ═══ -->
+  <section class="view" id="v-clubhome"></section>
+
+  <!-- ═══ ④ 데이거래 (당근식 동네 장터) ═══ -->
+  <section class="view" id="v-deal">
+    <h2 class="vt">데이거래</h2>
+    <p class="vd"><b id="locName3">동네</b> 이웃과 파크골프 용품 직거래</p>
+    <div class="chips" id="dealChips">
+      <button class="chip on" onclick="App.dealFilter('all',this)">전체</button>
+      <button class="chip" onclick="App.dealFilter('club',this)">클럽</button>
+      <button class="chip" onclick="App.dealFilter('ball',this)">공</button>
+      <button class="chip" onclick="App.dealFilter('bag',this)">가방</button>
+      <button class="chip" onclick="App.dealFilter('etc',this)">기타</button>
+      <button class="chip" onclick="App.dealFilter('free',this)">무료나눔 💚</button>
+    </div>
+    <div id="dealList"></div>
+    <button class="fab" onclick="App.dealNew()">＋ 팔기</button>
+  </section>
+
+  <!-- 거래글 상세 / 글쓰기 / 채팅 (JS 렌더) -->
+  <section class="view" id="v-dealdetail"></section>
+  <section class="view" id="v-dealnew"></section>
+  <section class="view" id="v-chat"></section>
+
+  <!-- ═══ ⑤ 마이 ═══ -->
+  <section class="view" id="v-my">
+    <h2 class="vt">내 정보</h2>
+    <p class="vd">전화번호만으로 시작할 수 있어요</p>
+    <div class="mylist">
+      <button class="myrow" onclick="App.show('ticket')"><span class="em">🎫</span> 내 예약 확인 <span class="arr">›</span></button>
+      <button class="myrow" onclick="App.setLocation()"><span class="em">📍</span> 내 동네 바꾸기 <span class="arr">›</span></button>
+      <button class="myrow" onclick="alert('프로토타입: 관심 지역 추가 화면')"><span class="em">⭐</span> 관심 지역 추가 <span class="arr">›</span></button>
+      <button class="myrow" onclick="App.call('07074644466')"><span class="em">📞</span> 고객센터 (사람이 받아요) <span class="arr">›</span></button>
+    </div>
+    <div class="card">
+      <b style="font-size:calc(16px * var(--fs))">🔍 글자 크기</b>
+      <div class="fs-group" style="padding:12px 0 0">
+        <button class="chip on" onclick="App.setFS(1,this)">보통</button>
+        <button class="chip" onclick="App.setFS(1.15,this)">크게</button>
+        <button class="chip" onclick="App.setFS(1.3,this)">아주 크게</button>
+      </div>
+    </div>
+    <div class="platform-note">
+      파크데이는 구장 정보를 안내하는 중개 플랫폼입니다.<br>
+      구장 운영·요금·예약 확정 권한은 각 구장(지자체)에 있습니다.<br>
+      ⓒ 2026 IDPARK · parkday.kr
+    </div>
+  </section>
+
+  <!-- ═══ 하단 탭 ═══ -->
+  <nav class="tabbar">
+    <button class="tab on" data-v="home" onclick="App.show('home',this)">
+      <span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3v1.5M3 21v-6m0 0 2.77-.693a9 9 0 0 1 6.208.682l.108.054a9 9 0 0 0 6.086.71l3.114-.732a48.524 48.524 0 0 1-.005-10.499l-3.11.732a9 9 0 0 1-6.085-.711l-.108-.054a9 9 0 0 0-6.208-.682L3 4.5M3 15V4.5"/></svg></span>
+      <span class="tl">예약</span>
+    </button>
+    <button class="tab" data-v="shop" onclick="App.show('shop',this)">
+      <span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007Z"/></svg></span>
+      <span class="tl">상품</span>
+    </button>
+    <button class="tab" data-v="club" onclick="App.show('club',this)">
+      <span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/></svg></span>
+      <span class="tl">클럽</span>
+    </button>
+    <button class="tab" data-v="deal" onclick="App.show('deal',this)">
+      <span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5"/></svg></span>
+      <span class="tl">데이거래</span>
+    </button>
+    <button class="tab" data-v="my" onclick="App.show('my',this)">
+      <span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/></svg></span>
+      <span class="tl">내 정보</span>
+    </button>
+  </nav>
+
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
