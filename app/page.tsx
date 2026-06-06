@@ -195,6 +195,7 @@ export default function Home() {
               <h3>
                 클럽·용품 구매는 <span style={{ color: '#b9821a' }}>파크데이</span>에서
               </h3>
+              <p className="b2c-slogan">“좋은 날엔, 파크데이”</p>
               <p>
                 국내 자체공장 생산 프리미엄 클럽 ID-01 시리즈와 용품을 거품 없는 직영가로. 전화
                 한 통이면 주문됩니다.
@@ -202,7 +203,7 @@ export default function Home() {
             </div>
             {/* TODO: 파크데이 오픈 시 실제 URL로 교체 (parkday.kr) */}
             <a href="#" className="btn btn-orange">
-              파크데이 바로가기 →
+              파크데이 구경해보세요 →
             </a>
           </div>
         </div>

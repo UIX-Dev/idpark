@@ -1,61 +1,66 @@
 /* ============================================
-   IDPARK 리브랜딩 사이트 v1 (2026.06.05)
-   콘셉트: 공공 파크골프 인프라 파트너
+   IDPARK B2G 사이트 — 브랜드 패밀리 토큰 적용 (2026.06.06)
+   기준: idpark_브랜드통합지침_코드감사 · parkday_브랜드가이드 v1
+   - 공유 패밀리: #00A860 그린 패밀리 · 단일 곡률 12px · 테두리 1px 한도 · Pretendard
+   - IDPARK 차별점: 딥그린(#0B3D2E) 비중↑ (공공 신뢰 톤) · B2G 카피·구조 유지
    ============================================ */
-/* 컬러 팔레트: 브랜드 가이드 기반 (champagne green / deep green / gold / beige / black) */
 :root{
-  --green:#3b9f30;        /* champagne green — 메인 */
-  --green-dark:#0e3c1e;   /* deep green */
-  --green-deep:#082a14;   /* deep green 심화(그라데이션용) */
-  --green-light:#eaf6e7;  /* 메인 그린 라이트 틴트 */
-  --ink:#040404;          /* black */
-  --sub:#5a6b62;
-  --line:#e3eae5;
-  --bg:#f8faf7;
-  --card:#ffffff;
-  --orange:#eeb953;       /* gold — 보조 액센트 */
-  --orange-dark:#3a2c0e;  /* gold 위 텍스트용 다크 */
-  --orange-light:#fff2da; /* beige */
-  --blue:#2d5f8a;
-  --blue-bg:#edf4fa;
+  /* ── 브랜드 패밀리 팔레트 ── */
+  --green:#00A860;        /* 필드 그린 — 키컬러·행동 */
+  --green-dark:#0B3D2E;   /* 딥 포레스트 — 헤더·다크섹션·푸터 (B2G 비중↑) */
+  --green-deep:#072a1c;   /* 딥 포레스트 심화 — 그라데이션 깊이용 */
+  --green-light:#E2F4E8;  /* 민트 틴트 */
+  --lime:#A8E063;         /* 라임 — 포인트(화면당 1곳) */
+  --ink:#10241A;          /* 잉크 — 본문 */
+  --sub:#5C6E63;          /* 서브 텍스트 */
+  --line:#DCE8DF;
+  --bg:#FAF7EC;           /* 크림 — 메인 배경 */
+  --card:#FFFFFF;
+  --orange:#FFC83D;       /* 선샤인 — 혜택·파크데이 배너 */
+  --orange-dark:#5c4404;  /* 선샤인 위 텍스트 다크 */
+  --orange-light:#FFF3D3; /* 선샤인 소프트 */
+  --blue:#2FA8F0;         /* 스카이 */
+  --blue-bg:#E3F2FD;
+  /* 단일 곡률 — 보드·박스·버튼·배지가 전부 공유 */
+  --radius-lg:12px; --radius:12px; --radius-sm:12px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Pretendard',-apple-system,'Malgun Gothic',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;font-size:16px}
+body{font-family:'Pretendard',-apple-system,'Malgun Gothic',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;font-size:17px}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
 
 /* ───── 헤더 ───── */
-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header{position:sticky;top:0;z-index:50;background:rgba(250,247,236,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .gnb{display:flex;align-items:center;gap:32px;height:68px}
 .logo{font-size:22px;font-weight:900;color:var(--green-dark);letter-spacing:-.01em;display:flex;align-items:baseline;gap:8px}
 .logo .sub{font-size:11px;font-weight:600;color:var(--sub);letter-spacing:.1em}
 .gnb nav{display:flex;gap:4px;margin-left:auto}
-.gnb nav a{padding:10px 14px;font-size:15px;font-weight:600;color:var(--sub);border-radius:8px}
+.gnb nav a{padding:10px 14px;font-size:15px;font-weight:600;color:var(--sub);border-radius:var(--radius)}
 .gnb nav a:hover{color:var(--green-dark);background:var(--green-light)}
 .gnb nav a.on{color:var(--green-dark);font-weight:800}
-.cta-quote{background:var(--green);color:#fff !important;font-weight:800 !important;padding:10px 20px !important;border-radius:10px}
+.cta-quote{background:var(--green);color:#fff !important;font-weight:800 !important;padding:10px 20px !important;border-radius:var(--radius)}
 .cta-quote:hover{background:var(--green-dark) !important}
 .hamburger{display:none;margin-left:auto;border:none;background:none;font-size:26px;cursor:pointer;color:var(--green-dark)}
 @media(max-width:860px){
-  .gnb nav{display:none;position:absolute;top:68px;left:0;right:0;background:#fff;flex-direction:column;padding:12px 16px 20px;border-bottom:1px solid var(--line);box-shadow:0 12px 24px rgba(0,0,0,.08)}
+  .gnb nav{display:none;position:absolute;top:68px;left:0;right:0;background:var(--bg);flex-direction:column;padding:12px 16px 20px;border-bottom:1px solid var(--line);box-shadow:0 12px 24px rgba(11,61,46,.1)}
   .gnb nav.open{display:flex}
   .gnb nav a{padding:14px;font-size:17px}
   .hamburger{display:block}
 }
 
-/* ───── 히어로 ───── */
+/* ───── 히어로 — 딥그린 B2G 톤(신뢰), 패밀리 그린으로 갱신 ───── */
 .hero{background:linear-gradient(160deg,var(--green-deep) 0%,var(--green-dark) 55%,var(--green) 100%);color:#fff;padding:96px 0 88px;position:relative;overflow:hidden}
 .hero::after{content:'';position:absolute;right:-120px;bottom:-180px;width:520px;height:520px;border-radius:50%;background:rgba(255,255,255,.05)}
-.hero .eyebrow{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);padding:6px 16px;border-radius:99px;font-size:14px;font-weight:600;letter-spacing:.04em;margin-bottom:22px}
+.hero .eyebrow{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);padding:6px 16px;border-radius:var(--radius);font-size:14px;font-weight:700;letter-spacing:.04em;margin-bottom:22px}
 .hero h1{font-size:clamp(32px,5vw,52px);font-weight:900;line-height:1.25;margin-bottom:18px;letter-spacing:-.02em}
-.hero p.lead{font-size:clamp(16px,2vw,19px);opacity:.88;max-width:640px;margin-bottom:36px}
+.hero p.lead{font-size:clamp(17px,2vw,20px);opacity:.9;max-width:640px;margin-bottom:36px}
 .hero .actions{display:flex;gap:12px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:16px 28px;border-radius:12px;font-size:17px;font-weight:800;cursor:pointer;border:none;font-family:inherit;transition:transform .15s}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:56px;padding:0 28px;border-radius:var(--radius);font-size:18px;font-weight:800;cursor:pointer;border:none;font-family:inherit;letter-spacing:-.01em;transition:transform .15s}
 .btn:hover{transform:translateY(-2px)}
 .btn-primary{background:#fff;color:var(--green-dark)}
-.btn-ghost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.5)}
+.btn-ghost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.6)}
 .btn-green{background:var(--green);color:#fff}
 .btn-orange{background:var(--orange);color:var(--orange-dark)}
 
@@ -63,7 +68,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdro
 .trust{background:#fff;border-bottom:1px solid var(--line);padding:36px 0}
 .trust .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;text-align:center}
 .trust .t .num{font-size:30px;font-weight:900;color:var(--green-dark)}
-.trust .t .lbl{font-size:14px;color:var(--sub);font-weight:600}
+.trust .t .lbl{font-size:14.5px;color:var(--sub);font-weight:600}
 
 /* ───── 섹션 공통 ───── */
 section{padding:80px 0}
@@ -72,11 +77,11 @@ h2.sec-title{font-size:clamp(26px,3.4vw,34px);font-weight:900;line-height:1.3;ma
 p.sec-desc{font-size:17px;color:var(--sub);max-width:680px;margin-bottom:42px}
 .alt{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 
-/* ───── 카드 ───── */
+/* ───── 카드 — 그림자 대신 면과 색 ───── */
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:30px;transition:box-shadow .2s,transform .2s}
-.card:hover{box-shadow:0 14px 36px rgba(14,82,50,.1);transform:translateY(-3px)}
-.card .ico{width:56px;height:56px;border-radius:14px;background:var(--green-light);display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);padding:30px;transition:transform .18s,border-color .18s}
+.card:hover{transform:translateY(-3px);border-color:var(--green)}
+.card .ico{width:56px;height:56px;border-radius:var(--radius);background:var(--green-light);display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:18px}
 .card h3{font-size:20px;font-weight:800;margin-bottom:8px}
 .card p{font-size:15px;color:var(--sub)}
 .card .more{display:inline-block;margin-top:16px;font-size:14.5px;font-weight:800;color:var(--green-dark)}
@@ -84,7 +89,7 @@ p.sec-desc{font-size:17px;color:var(--sub);max-width:680px;margin-bottom:42px}
 /* ───── 제품 그리드 ───── */
 .prods{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
 /* 카드 내부 고정 슬롯: 이미지(200) → 배지줄(고정) → 제목 → 설명(최소2줄) → 버튼(하단 고정) */
-.prod{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.prod{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;display:flex;flex-direction:column}
 .prod .ph{height:200px;flex-shrink:0;background:#fff;display:flex;align-items:center;justify-content:center;font-size:52px;border-bottom:1px solid var(--line)}
 .prod .ph img{width:100%;height:100%;object-fit:contain;display:block}
 .prod .bd{padding:18px 20px 20px;flex:1;display:flex;flex-direction:column;align-items:flex-start}
@@ -93,69 +98,70 @@ p.sec-desc{font-size:17px;color:var(--sub);max-width:680px;margin-bottom:42px}
 .prod h4{font-size:17px;font-weight:800;margin-bottom:4px}
 .prod .ds{font-size:13.5px;color:var(--sub);margin-bottom:14px;min-height:41px}
 .prod .row{display:flex;gap:8px;width:100%;margin-top:auto}
-.prod .row a{flex:1;text-align:center;font-size:13.5px;font-weight:800;padding:10px;border-radius:9px}
+.prod .row a{flex:1;text-align:center;font-size:14px;font-weight:800;padding:12px 10px;border-radius:var(--radius)}
 .prod .a-spec{background:var(--green-light);color:var(--green-dark)}
 .prod .a-quote{background:var(--green);color:#fff}
-.badge{display:inline-block;font-size:12px;font-weight:800;padding:3px 10px;border-radius:99px;background:var(--green-light);color:var(--green-dark);margin-bottom:10px}
-.badge.b-o{background:var(--orange-light);color:#b9821a}
+.badge{display:inline-block;font-size:13px;font-weight:800;padding:5px 12px;border-radius:var(--radius);background:var(--green-light);color:#067a48;margin-bottom:10px}
+.badge.b-o{background:var(--orange-light);color:#9a6b00}
 
-/* ───── 특수 제작 피처 카드 (2칸 폭 · 특별 디자인) ───── */
-.prod-feature{grid-column:span 2;background:linear-gradient(120deg,var(--green-deep) 0%,var(--green-dark) 60%,var(--green) 100%);border:none;border-radius:16px;color:#fff;display:flex;flex-direction:column;justify-content:center;padding:30px 32px;position:relative;overflow:hidden}
+/* ───── 특수 제작 피처 카드 (2칸 폭 · 딥 포레스트) ───── */
+.prod-feature{grid-column:span 2;background:var(--green-dark);border:none;border-radius:var(--radius-lg);color:#fff;display:flex;flex-direction:column;justify-content:center;padding:30px 32px;position:relative;overflow:hidden}
 .prod-feature::after{content:'🛠️';position:absolute;right:-10px;bottom:-24px;font-size:130px;opacity:.13;transform:rotate(-12deg)}
 .prod-feature .fx{position:relative;z-index:1}
-.prod-feature .badge{background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.35)}
+.prod-feature .badge{background:rgba(168,224,99,.18);color:var(--lime)}
 .prod-feature h4{font-size:22px;font-weight:900;margin-bottom:8px;letter-spacing:-.01em}
-.prod-feature p{font-size:14.5px;opacity:.88;margin-bottom:0;max-width:480px}
+.prod-feature p{font-size:14.5px;opacity:.9;margin-bottom:0;max-width:480px}
 .prod-feature .tags{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 18px}
-.prod-feature .tags span{font-size:12.5px;font-weight:700;padding:5px 13px;border-radius:99px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25)}
-.prod-feature .fbtn{display:inline-block;position:relative;z-index:1;background:#fff;color:var(--green-dark);font-size:16px;font-weight:900;padding:14px 28px;border-radius:12px;white-space:nowrap;box-shadow:0 8px 22px rgba(0,0,0,.25);align-self:flex-start}
+.prod-feature .tags span{font-size:13px;font-weight:700;padding:5px 13px;border-radius:var(--radius);background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25)}
+.prod-feature .fbtn{display:inline-flex;align-items:center;min-height:56px;padding:0 28px;position:relative;z-index:1;background:#fff;color:var(--green-dark);font-size:16px;font-weight:900;border-radius:var(--radius);white-space:nowrap;align-self:flex-start}
 .prod-feature .fbtn:hover{transform:translateY(-2px)}
-@media(max-width:560px){.prod-feature{grid-column:1/-1}.prod-feature .fbtn{align-self:stretch;text-align:center}}
+@media(max-width:560px){.prod-feature{grid-column:1/-1}.prod-feature .fbtn{align-self:stretch;justify-content:center}}
 
-/* ───── 상품 준비중 카드 ───── */
-.prod-soon{border:2px dashed #c8d8cd;background:#f3f8f4;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:28px 20px;text-align:center;color:var(--sub)}
+/* ───── 상품 준비중 카드 (점선 플레이스홀더 — 예외 허용) ───── */
+.prod-soon{border:1px dashed #c2dcca;background:var(--green-light);border-radius:var(--radius-lg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:28px 20px;text-align:center;color:var(--sub)}
 .prod-soon .se{font-size:40px;opacity:.55}
-.prod-soon b{font-size:16px;font-weight:800;color:#7d8f84}
-.prod-soon small{font-size:13px;opacity:.8}
+.prod-soon b{font-size:16px;font-weight:800;color:#5f7568}
+.prod-soon small{font-size:13px;opacity:.85}
 
 /* ───── 프로세스 ───── */
 .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;counter-reset:step}
-.step{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px 22px;position:relative}
-.step::before{counter-increment:step;content:counter(step);position:absolute;top:-16px;left:20px;width:34px;height:34px;border-radius:10px;background:var(--green);color:#fff;font-weight:900;display:flex;align-items:center;justify-content:center;font-size:16px}
+.step{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);padding:26px 22px;position:relative}
+.step::before{counter-increment:step;content:counter(step);position:absolute;top:-16px;left:20px;width:34px;height:34px;border-radius:var(--radius);background:var(--green);color:#fff;font-weight:900;display:flex;align-items:center;justify-content:center;font-size:16px}
 .step h4{font-size:17px;font-weight:800;margin:8px 0 6px}
 .step p{font-size:14px;color:var(--sub)}
 
 /* ───── 실적 테이블 ───── */
-table.list{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:15px}
+table.list{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;font-size:15px}
 table.list th{background:var(--green-light);color:var(--green-dark);text-align:left;padding:13px 18px;font-weight:800;white-space:nowrap}
 table.list td{padding:13px 18px;border-top:1px solid var(--line)}
-table.list tr:hover td{background:#fafdfb}
+table.list tr:hover td{background:#f5fbf6}
 .filter-chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
-.chip{padding:9px 18px;border-radius:99px;border:2px solid var(--line);background:#fff;font-size:14px;font-weight:700;color:var(--sub);cursor:pointer;font-family:inherit}
+.chip{padding:11px 18px;border-radius:var(--radius);border:1px solid var(--line);background:#fff;font-size:14px;font-weight:700;color:var(--sub);cursor:pointer;font-family:inherit}
 .chip.on{border-color:var(--green);background:var(--green-light);color:var(--green-dark)}
 
 /* ───── 인용 콜아웃 ───── */
-.callout{background:var(--green-light);border-left:5px solid var(--green);border-radius:0 14px 14px 0;padding:22px 26px;font-size:16px;margin:28px 0}
+.callout{background:var(--green-light);border-left:5px solid var(--green);border-radius:var(--radius);padding:22px 26px;font-size:16px;margin:28px 0}
 .callout b{color:var(--green-dark)}
 
-/* ───── B2C 배너 ───── */
-.b2c{background:linear-gradient(135deg,#fff8e9,var(--orange-light));border:1px solid #f0e2c2;border-radius:20px;padding:36px;display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+/* ───── B2C 배너(파크데이) — 선샤인 톤 ───── */
+.b2c{background:linear-gradient(135deg,#FFF8E6,var(--orange-light));border:1px solid #F2E3BC;border-radius:var(--radius-lg);padding:36px;display:flex;align-items:center;gap:28px;flex-wrap:wrap}
 .b2c .tx{flex:1;min-width:260px}
 .b2c h3{font-size:23px;font-weight:900;margin-bottom:6px}
+.b2c .b2c-slogan{font-size:18px;font-weight:900;color:#b9821a;margin:2px 0 8px}
 .b2c p{font-size:15px;color:var(--sub)}
 
 /* ───── 폼 ───── */
-form.quote{background:#fff;border:1px solid var(--line);border-radius:20px;padding:36px;max-width:680px}
+form.quote{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);padding:36px;max-width:680px}
 .fld{margin-bottom:20px}
 .fld label{display:block;font-size:15px;font-weight:800;margin-bottom:8px}
 .fld label .req{color:var(--orange)}
-.fld input,.fld select,.fld textarea{width:100%;padding:14px 16px;border:2px solid var(--line);border-radius:12px;font-size:16px;font-family:inherit;background:#fff}
-.fld input:focus,.fld select:focus,.fld textarea:focus{outline:none;border-color:var(--green)}
+.fld input,.fld select,.fld textarea{width:100%;padding:14px 16px;border:1px solid var(--line);border-radius:var(--radius);font-size:16px;font-family:inherit;background:#fff}
+.fld input:focus,.fld select:focus,.fld textarea:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 1px var(--green)}
 .fld textarea{min-height:140px;resize:vertical}
 .fld .hint{font-size:13px;color:var(--sub);margin-top:6px}
 
-/* ───── 푸터 ───── */
-footer{background:var(--green-deep);color:#cfe0d6;padding:52px 0 44px;font-size:14px}
+/* ───── 푸터 — 딥 포레스트 ───── */
+footer{background:var(--green-dark);color:#cfe6d8;padding:52px 0 44px;font-size:14px}
 footer .cols{display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px;margin-bottom:32px}
 @media(max-width:720px){footer .cols{grid-template-columns:1fr}}
 footer .flogo{font-size:20px;font-weight:900;color:#fff;margin-bottom:12px}
@@ -168,10 +174,10 @@ footer .legal{border-top:1px solid rgba(255,255,255,.15);padding-top:24px;font-s
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
 .reveal.in{opacity:1;transform:none}
 
-/* ───── 페이지 헤더(서브페이지) ───── */
+/* ───── 페이지 헤더(서브페이지) — 딥 포레스트 ───── */
 .page-hero{background:linear-gradient(160deg,var(--green-deep),var(--green-dark));color:#fff;padding:64px 0 56px}
 .page-hero h1{font-size:clamp(28px,4vw,40px);font-weight:900;margin-bottom:10px}
-.page-hero p{opacity:.85;font-size:16px;max-width:640px}
+.page-hero p{opacity:.88;font-size:16px;max-width:640px}
 
 /* ───── 견적 페이지 2단 레이아웃 ───── */
 .contact-grid{display:grid;grid-template-columns:1fr 320px;gap:40px;align-items:start}
