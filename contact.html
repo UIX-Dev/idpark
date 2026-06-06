@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>견적 요청 — 아이디파크 IDPARK</title>
+<meta name="description" content="파크골프 시설물 납품·시공 견적 요청. 24시간 내 회신. 지자체·조경사·건설사 환영.">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap gnb">
+    <a href="index.html" class="logo">IDPARK <span class="sub">아이디파크</span></a>
+    <button class="hamburger" onclick="toggleNav()" aria-label="메뉴">☰</button>
+    <nav>
+      <a href="index.html">홈</a>
+      <a href="facilities.html">시설물·제품</a>
+      <a href="portfolio.html">납품·시공 실적</a>
+      <a href="company.html">회사소개</a>
+      <a href="contact.html" class="cta-quote on">견적 요청</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="wrap">
+    <h1>견적 요청</h1>
+    <p>품목 리스트, 내역서, 도면 — 어떤 형태든 좋습니다. 영업일 기준 24시간 내 회신드립니다.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap" style="display:grid;grid-template-columns:1fr 320px;gap:40px;align-items:start">
+    <form class="quote reveal" onsubmit="return submitQuote(event)">
+      <div class="fld">
+        <label>소속 / 회사명 <span class="req">*</span></label>
+        <input name="org" required placeholder="예: ○○시청 체육진흥과 / ○○조경(주)">
+      </div>
+      <div class="fld" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+        <div><label>담당자 성함 <span class="req">*</span></label><input name="name" required placeholder="홍길동"></div>
+        <div><label>연락처 <span class="req">*</span></label><input name="phone" type="tel" required placeholder="010-0000-0000"></div>
+      </div>
+      <div class="fld">
+        <label>문의 구분 <span class="req">*</span></label>
+        <select name="category" required>
+          <option value="">선택해 주세요</option>
+          <option>신규 구장 조성 — 시설물 일괄</option>
+          <option>시설물 부분 납품</option>
+          <option>노후 시설 교체·보수</option>
+          <option>스펙시트·인증서 자료 요청</option>
+          <option>기타</option>
+        </select>
+      </div>
+      <div class="fld">
+        <label>내용</label>
+        <textarea name="message" placeholder="구장명(또는 현장 위치), 필요 품목과 수량, 희망 납기 등을 적어주세요. 내역서·도면이 있다면 메일로 첨부해 주시면 더 정확한 견적이 가능합니다."></textarea>
+        <div class="hint">※ 파일 첨부가 필요한 경우: contact@idpark.kr 로 직접 보내주셔도 됩니다.</div>
+      </div>
+      <button type="submit" class="btn btn-green" style="width:100%;justify-content:center;font-size:18px">견적 요청 보내기</button>
+      <div class="hint" style="margin-top:12px;text-align:center">버튼을 누르면 메일 작성 화면이 열립니다. <!-- TODO: 운영 시 서버 전송(폼메일러/스프레드시트 연동)으로 교체 --></div>
+    </form>
+
+    <div>
+      <div class="card reveal" style="margin-bottom:16px">
+        <div class="ico">📞</div>
+        <h3>전화가 빠릅니다</h3>
+        <p>현장에서 급하신가요?<br><b style="font-size:20px;color:var(--green-dark)">070-7464-4466</b><br>평일 10:00–17:00 (점심 12–13시)</p>
+      </div>
+      <div class="card reveal">
+        <div class="ico">📐</div>
+        <h3>설계 단계라면</h3>
+        <p>품목별 스펙시트를 먼저 받아 내역서에 반영하세요. 문의 구분에서 "자료 요청"을 선택하시면 됩니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <div class="flogo">IDPARK 아이디파크</div>
+        <p style="opacity:.8;max-width:340px">파크골프 시설물 전문 제조기업.<br>자체 공장 생산 · 대한파크골프협회 공인인증.</p>
+      </div>
+      <div>
+        <h5>바로가기</h5>
+        <a href="facilities.html">시설물·제품</a>
+        <a href="portfolio.html">납품·시공 실적</a>
+        <a href="company.html">회사소개</a>
+        <a href="contact.html">견적 요청</a>
+      </div>
+      <div>
+        <h5>문의</h5>
+        <a href="tel:07074644466">📞 070-7464-4466</a>
+        <a href="mailto:contact@idpark.kr">✉️ contact@idpark.kr</a>
+      </div>
+    </div>
+    <div class="legal">아이디파크 · 대표 장문경 · 사업자등록번호 546-30-01574 · 경기도 고양시 덕양구 청초로 10 · © 2026 IDPARK</div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<style>@media(max-width:860px){section .wrap{grid-template-columns:1fr !important}}</style>
+</body>
+</html>
