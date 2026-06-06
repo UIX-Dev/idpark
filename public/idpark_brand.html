@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>아이디파크 IDPARK — 브랜드</title>
+<meta name="description" content="파크골프장을 만드는 회사, 아이디파크의 브랜드 아이덴티티 — 로고, 컬러, 보이스, 패밀리 브랜드 체계.">
+<meta property="og:title" content="아이디파크 IDPARK — 브랜드">
+<meta property="og:description" content="파크골프장을 만드는 회사, 아이디파크의 브랜드 아이덴티티.">
+<meta property="og:image" content="https://idpark.vercel.app/brand/idpark-favicon.png">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="https://idpark.vercel.app/brand/idpark-favicon.png">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+<style>
+  /* ════════ IDPARK 디자인 토큰 — PARKDAY와 패밀리 공유(서체·12px 곡률·1px 보더) ════════ */
+  :root{
+    --id-green:#00A860;        /* 웹 키컬러 (패밀리 공유) */
+    --id-deep:#0B3D2E;         /* 딥 포레스트 — IDPARK는 비중 높게 (신뢰) */
+    --id-deeper:#072a1c;
+    --id-lime:#A8E063;
+    --id-mark-deep:#003828;    /* 마크 전용 — 로고 원본 팔레트 */
+    --id-mark-green:#009850;
+    --id-mark-lime:#90C048;
+    --id-cream:#FAF7EC; --id-mint:#E2F4E8;
+    --id-ink:#10241A; --id-gray:#5C6E63; --id-line:#DCE8DF;
+    --id-danger:#E5533C;
+    --radius:12px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Pretendard',sans-serif;background:var(--id-cream);color:var(--id-ink);line-height:1.65}
+  img{max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+  section{padding:64px 0 24px}
+  .lbl{font-size:13px;font-weight:800;color:var(--id-green);letter-spacing:.14em;margin-bottom:8px}
+  h2{font-size:30px;font-weight:900;letter-spacing:-.02em;margin-bottom:8px}
+  p.d{font-size:16px;color:var(--id-gray);max-width:680px;margin-bottom:30px}
+
+  /* 히어로 — B2G 무게감: 딥 포레스트 기반 */
+  .hero{background:linear-gradient(135deg,var(--id-deeper) 0%,var(--id-deep) 55%,#10684a 100%);color:#fff;padding:84px 0 76px;position:relative;overflow:hidden}
+  .hero::before{content:'';position:absolute;right:-140px;top:-160px;width:460px;height:460px;border-radius:50%;background:rgba(0,168,96,.25)}
+  .hero::after{content:'';position:absolute;right:40px;bottom:-230px;width:400px;height:400px;border-radius:50%;background:var(--id-lime);opacity:.16}
+  .hero .wrap{position:relative;z-index:1}
+  .hero .tag{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);color:var(--id-lime);padding:7px 18px;border-radius:var(--radius);font-size:14px;font-weight:900;margin-bottom:22px}
+  .hero h1{font-size:clamp(34px,5.4vw,52px);font-weight:900;letter-spacing:-.03em;line-height:1.22;margin-bottom:16px}
+  .hero h1 .pt{color:var(--id-lime)}
+  .hero p{font-size:18px;max-width:600px;font-weight:500;color:rgba(255,255,255,.85);margin-bottom:26px}
+  .hero .logo{background:#fff;display:inline-block;border-radius:var(--radius);padding:16px 26px;margin-bottom:26px}
+  .hero .logo img{height:44px;display:block}
+  .hero .cta{display:inline-flex;align-items:center;gap:8px;background:var(--id-green);color:#fff;font-size:17px;font-weight:900;min-height:56px;padding:0 28px;border-radius:var(--radius)}
+
+  /* 카드 공통 */
+  .concepts{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+  .concept{background:#fff;border-radius:var(--radius);padding:30px;border:1px solid var(--id-line)}
+  .concept .em{font-size:38px;margin-bottom:12px}
+  .concept h3{font-size:20px;font-weight:900;margin-bottom:6px}
+  .concept p{font-size:15px;color:var(--id-gray)}
+
+  /* 마크 진열 */
+  .markbox{background:#fff;border:1px solid var(--id-line);border-radius:var(--radius);padding:34px;text-align:center}
+  .markbox.dark{background:var(--id-deep)}
+  .markbox img{max-height:64px;margin:0 auto;display:block}
+  .markbox .cap{font-size:13px;font-weight:800;color:var(--id-gray);margin-top:14px}
+  .markbox.dark .cap{color:rgba(255,255,255,.7)}
+  .markgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-bottom:16px}
+
+  /* 컬러 칩 */
+  .palette{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+  .swatch{border-radius:var(--radius);overflow:hidden;border:1px solid var(--id-line);background:#fff;cursor:pointer;transition:transform .15s}
+  .swatch:hover{transform:translateY(-3px)}
+  .swatch .c{height:120px;display:flex;align-items:flex-end;padding:14px}
+  .swatch .c span{background:rgba(255,255,255,.92);font-size:12.5px;font-weight:900;padding:4px 12px;border-radius:var(--radius)}
+  .swatch .i{padding:14px 18px}
+  .swatch .i b{font-size:16px;display:block}
+  .swatch .i small{color:var(--id-gray);font-size:13px}
+  .ratio{display:flex;border-radius:var(--radius);overflow:hidden;height:48px;margin:26px 0 8px;border:1px solid var(--id-line)}
+  .ratio div{display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:900;color:#fff}
+  .hint{font-size:13.5px;color:var(--id-gray)}
+
+  /* 타이포/보이스 */
+  .typo{background:#fff;border-radius:var(--radius);border:1px solid var(--id-line);padding:34px;margin-bottom:16px}
+  .typo .row{display:flex;align-items:baseline;gap:24px;padding:16px 0;border-bottom:1px dashed var(--id-line);flex-wrap:wrap}
+  .typo .row:last-child{border-bottom:none}
+  .typo .meta{flex-shrink:0;width:200px;font-size:13px;color:var(--id-gray);font-weight:700}
+
+  /* Do / Don't */
+  .dd{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:680px){.dd{grid-template-columns:1fr}}
+  .ddc{border-radius:var(--radius);padding:26px;border:1px solid var(--id-line);background:#fff}
+  .ddc h4{font-size:17px;font-weight:900;margin-bottom:14px}
+  .ddc.do h4{color:#067a48}.ddc.dont h4{color:var(--id-danger)}
+  .ddc li{font-size:14.5px;margin:0 0 9px 18px;color:#33403a}
+
+  /* 패밀리 */
+  .family{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:680px){.family{grid-template-columns:1fr}}
+  .fam{border-radius:var(--radius);padding:30px;border:1px solid var(--id-line)}
+  .fam.idp{background:var(--id-deep);color:#fff}
+  .fam.pd{background:linear-gradient(120deg,#00B468,#5FCB4A);color:#fff}
+  .fam h3{font-size:22px;font-weight:900;margin-bottom:6px}
+  .fam .role{font-size:13px;font-weight:800;opacity:.8;letter-spacing:.06em;margin-bottom:14px}
+  .fam p{font-size:14.5px;opacity:.92}
+  .fam img{height:40px;margin-bottom:16px;background:#fff;border-radius:8px;padding:6px 12px}
+
+  footer{padding:44px 0 60px;text-align:center;color:var(--id-gray);font-size:13px}
+  footer a{color:var(--id-deep);font-weight:800}
+  .toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);background:var(--id-deep);color:#fff;padding:12px 26px;border-radius:var(--radius);font-weight:800;font-size:15px;opacity:0;transition:opacity .25s;pointer-events:none;z-index:99}
+  .toast.on{opacity:1}
+</style>
+</head>
+<body>
+
+<!-- ═══ 히어로 ═══ -->
+<div class="hero">
+  <div class="wrap">
+    <span class="tag">IDPARK BRAND</span>
+    <div class="logo"><img src="https://idpark.vercel.app/brand/idpark-logo.png" alt="IDPARK 아이디파크"></div>
+    <h1>파크골프장을<br><span class="pt">만드는 회사</span>, 아이디파크</h1>
+    <p>홀컵 하나부터 18홀 코스 전체까지 — 경남 자체 공장에서 직접 만들고, 전국에 납품·시공합니다. 대한파크골프협회 공인인증.</p>
+    <a class="cta" href="https://idpark.vercel.app" target="_blank">🏭 아이디파크 사이트 보기</a>
+  </div>
+</div>
+
+<!-- ═══ 브랜드 컨셉 ═══ -->
+<section>
+  <div class="wrap">
+    <div class="lbl">BRAND CONCEPT</div>
+    <h2>아이덴티티 3원칙</h2>
+    <p class="d">아이디파크는 유통사가 아니라 제조사입니다. 브랜드도 만드는 사람의 언어로 말합니다.</p>
+    <div class="concepts">
+      <div class="concept" style="background:var(--id-mint)"><div class="em">🏭</div><h3>만드는 회사</h3><p>"파크골프의 모든 것"이 아니라 "파크골프장을 만드는 회사". 직접 생산이 모든 신뢰의 출발점입니다.</p></div>
+      <div class="concept" style="background:#F1FADF"><div class="em">📑</div><h3>증빙으로 말한다</h3><p>구호 대신 실적·스펙·인증서. 발주 담당자와 조경사가 내역서에 바로 넣을 수 있는 자료가 최고의 카피입니다.</p></div>
+      <div class="concept" style="background:#FFF6DC"><div class="em">🤝</div><h3>끝까지 책임</h3><p>납품으로 끝나지 않습니다. 만든 사람이 고치는 것이 가장 빠릅니다 — 설치, 검수, 사후관리까지.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 브랜드 마크 ═══ -->
+<section>
+  <div class="wrap">
+    <div class="lbl">MARK</div>
+    <h2>로고 시스템</h2>
+    <p class="d">'A'를 깃발 꽂힌 그린 언덕으로 치환한 워드마크. 컬러/블랙 2종을 배경에 따라 사용합니다.</p>
+    <div class="markgrid">
+      <div class="markbox">
+        <img src="https://idpark.vercel.app/brand/idpark-logo.png" alt="IDPARK 컬러 로고">
+        <div class="cap">기본형(컬러) — 밝은 배경</div>
+      </div>
+      <div class="markbox dark">
+        <img src="https://idpark.vercel.app/brand/idpark-logo-black.png" alt="IDPARK 다크 로고" style="filter:invert(1) brightness(1.6)">
+        <div class="cap">단색형 — 어두운 배경·각인·단색 인쇄</div>
+      </div>
+      <div class="markbox">
+        <img src="https://idpark.vercel.app/brand/idpark-symbol.png" alt="IDPARK 심볼" style="max-height:84px">
+        <div class="cap">심볼 — 파비콘·소형 지면</div>
+      </div>
+      <div class="markbox">
+        <img src="https://idpark.vercel.app/brand/idpark-favicon.png" alt="IDPARK 앱 아이콘" style="max-height:84px;border-radius:var(--radius)">
+        <div class="cap">아이콘형 — 프로필·앱</div>
+      </div>
+    </div>
+    <div class="hint">마크 컬러는 로고 원본 팔레트(딥 #003828 · 그린 #009850 · 라임 #90C048) 고정 — 임의 리컬러 금지. 최소 여백은 심볼 깃발 높이만큼 확보.</div>
+  </div>
+</section>
+
+<!-- ═══ 컬러 ═══ -->
+<section>
+  <div class="wrap">
+    <div class="lbl">COLOR</div>
+    <h2>컬러 시스템 <span style="font-size:14px;font-weight:700;color:var(--id-gray)">(칩 클릭 시 HEX 복사)</span></h2>
+    <p class="d">PARKDAY와 같은 그린 패밀리를 쓰되, 아이디파크는 <b>딥 포레스트의 비중을 높여</b> 공공·제조의 신뢰감을 만듭니다.</p>
+    <div class="palette">
+      <div class="swatch" onclick="cp('#0B3D2E')"><div class="c" style="background:#0B3D2E"><span>BASE</span></div><div class="i"><b>딥 포레스트 #0B3D2E</b><small>히어로·다크 섹션·푸터 — IDPARK의 무게중심</small></div></div>
+      <div class="swatch" onclick="cp('#00A860')"><div class="c" style="background:#00A860"><span>KEY</span></div><div class="i"><b>필드 그린 #00A860</b><small>버튼·강조 — 행동에만 (패밀리 공유)</small></div></div>
+      <div class="swatch" onclick="cp('#A8E063')"><div class="c" style="background:#A8E063"><span>POINT</span></div><div class="i"><b>라임 #A8E063</b><small>다크 배경 위 포인트 텍스트</small></div></div>
+      <div class="swatch" onclick="cp('#FAF7EC')"><div class="c" style="background:#FAF7EC;border-bottom:1px solid var(--id-line)"><span>BG</span></div><div class="i"><b>크림 #FAF7EC</b><small>본문 배경</small></div></div>
+      <div class="swatch" onclick="cp('#E2F4E8')"><div class="c" style="background:#E2F4E8;border-bottom:1px solid var(--id-line)"><span>BG</span></div><div class="i"><b>민트 틴트 #E2F4E8</b><small>정보 박스·배지 배경</small></div></div>
+      <div class="swatch" onclick="cp('#10241A')"><div class="c" style="background:#10241A"><span>TEXT</span></div><div class="i"><b>잉크 #10241A</b><small>본문 텍스트</small></div></div>
+    </div>
+    <div class="ratio">
+      <div style="flex:5;background:#FAF7EC;color:#8a8472">크림·화이트 50%</div>
+      <div style="flex:3;background:#0B3D2E">딥 포레스트 30%</div>
+      <div style="flex:1.5;background:#00A860">그린 15%</div>
+      <div style="flex:.5;background:#A8E063;color:#0B3D2E">5%</div>
+    </div>
+    <div class="hint">50-30-15-5 — PARKDAY(60-25-10-5)보다 딥의 비중이 높습니다. 같은 패밀리, 다른 무게.</div>
+  </div>
+</section>
+
+<!-- ═══ 타이포 & 보이스 ═══ -->
+<section>
+  <div class="wrap">
+    <div class="lbl">TYPOGRAPHY & VOICE</div>
+    <h2>타이포그래피 &amp; 보이스</h2>
+    <p class="d">서체는 Pretendard 단일 패밀리(패밀리 공유). 카피는 단정하고 명료하게 — B2G에서는 명료함이 예의입니다.</p>
+    <div class="typo">
+      <div class="row"><div class="meta">Display · 34px+ · 900</div><div style="font-size:34px;font-weight:900;letter-spacing:-.02em">파크골프장을 만드는 회사</div></div>
+      <div class="row"><div class="meta">H2 · 21px · 800</div><div style="font-size:21px;font-weight:800">자체 공장 생산 · 협회 공인인증</div></div>
+      <div class="row"><div class="meta">Body · 16~18px</div><div style="font-size:17px">품목·수량·현장 정보를 보내주시면 24시간 내 회신드립니다.</div></div>
+      <div class="row"><div class="meta">슬로건</div><div style="font-size:19px;font-weight:800">"파크골프장을 만드는 회사" · 보조: "홀컵 하나부터 18홀 전체까지"</div></div>
+    </div>
+    <div class="dd">
+      <div class="ddc do">
+        <h4>✅ 이렇게</h4>
+        <ul>
+          <li>사실·숫자·증빙 중심 — "전국 납품", "24시간 내 회신", "협회 공인인증"</li>
+          <li>발주처·조경사의 실무 언어 — 내역서, 스펙시트, 검수</li>
+          <li>단정형 카피 허용 — "직접 만들고, 책임집니다"</li>
+          <li>딥 포레스트로 무게, 그린은 CTA에만</li>
+        </ul>
+      </div>
+      <div class="ddc dont">
+        <h4>🚫 이렇게는 금지</h4>
+        <ul>
+          <li>검증 불가한 과장 — "국내 1위", "최고의" (실적이 말하게 한다)</li>
+          <li>쇼핑몰 어휘 — 타임세일, 핫딜, 특가</li>
+          <li>마크 임의 리컬러·변형, 흐릿한 저대비 배치</li>
+          <li>IDPARK와 PARKDAY 마크를 같은 크기로 병렬 배치</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 패밀리 브랜드 ═══ -->
+<section>
+  <div class="wrap">
+    <div class="lbl">BRAND FAMILY</div>
+    <h2>패밀리 브랜드 체계</h2>
+    <p class="d">하나의 그린 패밀리, 두 개의 얼굴 — 공유: Pretendard · 단일 곡률 12px · 테두리 1px 한도 · 그린 컬러 패밀리.</p>
+    <div class="family">
+      <div class="fam idp">
+        <img src="https://idpark.vercel.app/brand/idpark-logo.png" alt="IDPARK">
+        <h3>IDPARK</h3>
+        <div class="role">마스터 브랜드 · B2G</div>
+        <p>시설물 제조·납품·시공. 지자체와 조경·건설사를 위한 파크골프 인프라 파트너. 딥 포레스트의 무게, 증빙의 언어.</p>
+      </div>
+      <div class="fam pd">
+        <img src="https://parkday.kr/assets/logo.png" alt="PARKDAY">
+        <h3>PARKDAY <span style="font-size:13px;font-weight:700;opacity:.85">by IDPARK</span></h3>
+        <div class="role">서비스 브랜드 · B2C</div>
+        <p>"좋은 날엔, 파크데이" — 예약 안내·용품·클럽·데이거래. 밝은 그린의 생기, 나이를 부르지 않는 언어. <a href="/parkday_brand.html" style="text-decoration:underline;font-weight:800">→ 파크데이 브랜드 가이드</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <img src="https://idpark.vercel.app/brand/idpark-symbol.png" alt="" style="width:44px;margin-bottom:10px"><br>
+  <b style="color:var(--id-ink)">IDPARK 아이디파크</b> · 파크골프장을 만드는 회사<br>
+  <a href="https://idpark.vercel.app" target="_blank">idpark.vercel.app</a> · <a href="https://parkday.kr" target="_blank">parkday.kr</a> · ⓒ 2026 IDPARK
+</footer>
+
+<div class="toast" id="toast">복사됨!</div>
+<script>
+function cp(hex){
+  navigator.clipboard?.writeText(hex);
+  const t=document.getElementById('toast');
+  t.textContent=hex+' 복사됨!';
+  t.classList.add('on');
+  setTimeout(()=>t.classList.remove('on'),1200);
+}
+</script>
+</body>
+</html>

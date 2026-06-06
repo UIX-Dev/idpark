@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>파크데이 PARKDAY — 브랜드</title>
+<meta name="description" content="좋은 날엔, 파크데이. 파크골프 동네 플랫폼 파크데이의 브랜드 아이덴티티 — 슬로건, 컬러, 타이포그래피, 라이팅 원칙, 실제 화면.">
+<meta property="og:title" content="파크데이 PARKDAY — 브랜드">
+<meta property="og:description" content="좋은 날엔, 파크데이. 파크골프 동네 플랫폼의 브랜드 아이덴티티.">
+<meta property="og:image" content="https://parkday.kr/icons/icon-512.png">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="https://parkday.kr/assets/symbol.png">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+<style>
+  /* ════════ PARKDAY 디자인 토큰 ════════ */
+  :root{
+    --pd-green:#00A860; --pd-green-deep:#0B3D2E;
+    --pd-lime:#A8E063; --pd-lime-vivid:#8FD42E;
+    --pd-sky:#2FA8F0; --pd-sun:#FFC83D;
+    --pd-cream:#FAF7EC; --pd-mint:#E2F4E8;
+    --pd-ink:#10241A; --pd-gray:#5C6E63; --pd-line:#DCE8DF; --pd-white:#FFFFFF;
+    --pd-danger:#E5533C;
+    --t-display:34px; --t-h1:26px; --t-h2:21px; --t-body:18px; --t-sub:15px; --t-cap:13px;
+    --radius:12px; /* 단일 곡률 — 모든 보드·박스·버튼·배지 공유 */
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Pretendard',sans-serif;background:var(--pd-cream);color:var(--pd-ink);line-height:1.65}
+  img{max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+  section{padding:64px 0 24px}
+  .lbl{font-size:13px;font-weight:800;color:var(--pd-green);letter-spacing:.14em;margin-bottom:8px}
+  h2{font-size:30px;font-weight:900;letter-spacing:-.02em;margin-bottom:8px}
+  p.d{font-size:16px;color:var(--pd-gray);max-width:660px;margin-bottom:30px}
+
+  /* 히어로 */
+  .hero{background:linear-gradient(120deg,#00B468 0%,#00A860 38%,#5FCB4A 78%,#A8E063 100%);color:#fff;padding:84px 0 76px;position:relative;overflow:hidden}
+  .hero::before{content:'';position:absolute;right:-120px;top:-180px;width:480px;height:480px;border-radius:50%;background:rgba(255,255,255,.18)}
+  .hero::after{content:'';position:absolute;right:60px;bottom:-220px;width:420px;height:420px;border-radius:50%;background:var(--pd-sun);opacity:.85}
+  .hero .mark{position:absolute;right:120px;top:80px;width:130px;filter:drop-shadow(0 10px 24px rgba(7,42,28,.25))}
+  @media(max-width:760px){.hero .mark{display:none}}
+  .hero .wrap{position:relative;z-index:1}
+  .hero .tag{display:inline-block;background:var(--pd-green-deep);color:var(--pd-lime);padding:7px 18px;border-radius:var(--radius);font-size:14px;font-weight:900;margin-bottom:22px}
+  .hero h1{font-size:clamp(38px,6vw,58px);font-weight:900;letter-spacing:-.03em;line-height:1.18;margin-bottom:16px;text-shadow:0 2px 14px rgba(6,80,48,.18)}
+  .hero h1 .lime{background:var(--pd-lime);color:var(--pd-green-deep);padding:2px 16px;border-radius:var(--radius);box-decoration-break:clone;-webkit-box-decoration-break:clone}
+  .hero p{font-size:18px;max-width:560px;font-weight:600;color:#f2fff3;margin-bottom:26px}
+  .hero .cta{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--pd-green-deep);font-size:17px;font-weight:900;min-height:56px;padding:0 28px;border-radius:var(--radius);box-shadow:0 8px 22px rgba(7,42,28,.22)}
+
+  /* 컨셉 카드 */
+  .concepts{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+  .concept{background:#fff;border-radius:var(--radius);padding:30px;border:1px solid var(--pd-line)}
+  .concept .em{font-size:38px;margin-bottom:12px}
+  .concept h3{font-size:20px;font-weight:900;margin-bottom:6px}
+  .concept p{font-size:15px;color:var(--pd-gray)}
+
+  /* 컬러 칩 */
+  .palette{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+  .swatch{border-radius:var(--radius);overflow:hidden;border:1px solid var(--pd-line);background:#fff;cursor:pointer;transition:transform .15s}
+  .swatch:hover{transform:translateY(-3px)}
+  .swatch .c{height:130px;display:flex;align-items:flex-end;padding:14px}
+  .swatch .c span{background:rgba(255,255,255,.92);font-size:12.5px;font-weight:900;padding:4px 12px;border-radius:var(--radius)}
+  .swatch .i{padding:14px 18px}
+  .swatch .i b{font-size:16px;display:block}
+  .swatch .i small{color:var(--pd-gray);font-size:13px}
+  .ratio{display:flex;border-radius:var(--radius);overflow:hidden;height:48px;margin:26px 0 8px;border:1px solid var(--pd-line)}
+  .ratio div{display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:900;color:#fff}
+  .hint{font-size:13.5px;color:var(--pd-gray)}
+
+  /* 타이포 */
+  .typo{background:#fff;border-radius:var(--radius);border:1px solid var(--pd-line);padding:34px;margin-bottom:16px}
+  .typo .row{display:flex;align-items:baseline;gap:24px;padding:16px 0;border-bottom:1px dashed var(--pd-line);flex-wrap:wrap}
+  .typo .row:last-child{border-bottom:none}
+  .typo .meta{flex-shrink:0;width:200px;font-size:13px;color:var(--pd-gray);font-weight:700}
+
+  /* 컴포넌트 데모 */
+  .demo{background:#fff;border-radius:var(--radius);border:1px solid var(--pd-line);padding:34px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-bottom:16px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:58px;padding:0 30px;border-radius:var(--radius);font-size:18px;font-weight:900;border:none;cursor:pointer;font-family:inherit;letter-spacing:-.01em}
+  .b-key{background:var(--pd-green);color:#fff}
+  .b-lime{background:var(--pd-lime);color:var(--pd-green-deep)}
+  .b-deep{background:var(--pd-green-deep);color:#fff}
+  .b-sun{background:var(--pd-sun);color:#5c4404}
+  .b-line{background:#fff;border:1px solid var(--pd-line);color:var(--pd-ink)}
+  .chipd{min-height:48px;padding:0 22px;border-radius:var(--radius);border:1px solid var(--pd-line);background:#fff;font-size:15px;font-weight:800;color:var(--pd-gray);font-family:inherit;cursor:pointer}
+  .chipd.on{border-color:transparent;background:var(--pd-green);color:#fff}
+  .badge{font-size:13px;font-weight:900;padding:6px 14px;border-radius:var(--radius)}
+  .bd-lime{background:var(--pd-lime);color:var(--pd-green-deep)}
+  .bd-mint{background:var(--pd-mint);color:#067a48}
+  .bd-sky{background:#E3F2FD;color:#1273b8}
+  .bd-sun{background:#FFF3D3;color:#9a6b00}
+  .bd-dg{background:var(--pd-green-deep);color:var(--pd-lime)}
+
+  /* Do / Don't */
+  .dd{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:680px){.dd{grid-template-columns:1fr}}
+  .ddc{border-radius:var(--radius);padding:26px;border:1px solid var(--pd-line);background:#fff}
+  .ddc h4{font-size:17px;font-weight:900;margin-bottom:14px;display:flex;gap:8px;align-items:center}
+  .ddc.do h4{color:#067a48}.ddc.dont h4{color:var(--pd-danger)}
+  .ddc li{font-size:14.5px;margin:0 0 9px 18px;color:#33403a}
+
+  /* ───── 실제 화면 캐러셀 ───── */
+  .stage{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;padding:10px 0 8px}
+  @media(max-width:860px){.stage{grid-template-columns:1fr;gap:28px;justify-items:center;text-align:center}}
+  .sinfo .step{font-size:13px;font-weight:800;color:var(--pd-green);letter-spacing:.08em}
+  .sinfo h3{font-size:clamp(22px,3.4vw,30px);font-weight:900;letter-spacing:-.02em;margin:6px 0 12px;line-height:1.2}
+  .sinfo .desc{font-size:16px;color:#33433b;max-width:420px}
+  .sinfo .tab{display:inline-flex;align-items:center;gap:7px;margin-top:18px;background:#fff;border:1px solid var(--pd-line);border-radius:var(--radius);padding:8px 16px;font-size:13.5px;font-weight:800;color:var(--pd-green-deep)}
+  .sinfo .tab i{width:8px;height:8px;border-radius:50%;background:var(--pd-green);display:inline-block}
+  .phonewrap{display:flex;flex-direction:column;align-items:center;gap:16px}
+  .phone{position:relative;width:300px;background:#0d0d0d;border-radius:40px;padding:10px;box-shadow:0 30px 70px rgba(7,42,28,.3)}
+  .phone::before{content:'';position:absolute;top:18px;left:50%;transform:translateX(-50%);width:96px;height:6px;background:#2a2a2a;border-radius:var(--radius);z-index:3}
+  .screen{position:relative;border-radius:30px;overflow:hidden;background:var(--pd-cream);aspect-ratio:480/940}
+  .screen img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;opacity:0;transition:opacity .35s ease}
+  .screen img.on{opacity:1}
+  .snav{display:flex;align-items:center;gap:18px}
+  .snav button{width:52px;height:52px;border-radius:50%;border:1px solid var(--pd-line);background:#fff;color:var(--pd-green-deep);font-size:22px;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(7,42,28,.1)}
+  .snav button:hover{background:var(--pd-mint)}
+  .dots{display:flex;gap:7px}
+  .dots i{width:8px;height:8px;border-radius:var(--radius);background:var(--pd-line);cursor:pointer;transition:width .2s,background .2s}
+  .dots i.on{width:22px;background:var(--pd-green)}
+  .strip{display:grid;grid-template-columns:repeat(10,1fr);gap:10px;margin-top:26px}
+  @media(max-width:860px){.strip{grid-template-columns:repeat(5,1fr)}}
+  @media(max-width:480px){.strip{grid-template-columns:repeat(3,1fr)}}
+  .thumb{border:2px solid transparent;border-radius:var(--radius);overflow:hidden;cursor:pointer;background:#fff;padding:0;position:relative;aspect-ratio:480/940;transition:border-color .15s,transform .15s}
+  .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
+  .thumb:hover{transform:translateY(-3px)}
+  .thumb.on{border-color:var(--pd-green)}
+
+  footer{padding:44px 0 60px;text-align:center;color:var(--pd-gray);font-size:13px}
+  footer a{color:var(--pd-green-deep);font-weight:800}
+  .toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);background:var(--pd-green-deep);color:#fff;padding:12px 26px;border-radius:var(--radius);font-weight:800;font-size:15px;opacity:0;transition:opacity .25s;pointer-events:none;z-index:99}
+  .toast.on{opacity:1}
+</style>
+</head>
+<body>
+
+<!-- ═══ 히어로 ═══ -->
+<div class="hero">
+  <img class="mark" src="https://parkday.kr/assets/symbol.png" alt="">
+  <div class="wrap">
+    <span class="tag">PARKDAY BRAND</span>
+    <h1>PARKDAY<br><span class="lime">좋은 날엔,</span><br>파크데이</h1>
+    <p>또렷하고 세련되게, 나이는 부르지 않습니다. 동네에서 만나는 파크골프 — 예약 안내, 용품, 클럽, 데이거래까지.</p>
+    <a class="cta" href="https://parkday.kr" target="_blank">⛳ 파크데이 열어보기</a>
+  </div>
+</div>
+
+<!-- ═══ 브랜드 컨셉 ═══ -->
+<section>
+  <div class="wrap">
+    <div class="lbl">BRAND CONCEPT</div>
+    <h2>아이덴티티 3원칙</h2>
+    <p class="d">파크데이의 모든 화면과 문장은 이 세 가지 위에서 만들어집니다.</p>
+    <div class="concepts">
+      <div class="concept" style="background:var(--pd-mint)"><div class="em">🌿</div><h3>Fresh, not Childish</h3><p>채도 높은 그린·라임은 '유아틱'이 아니라 '생기'입니다. 색은 젊게, 정보는 명료하게.</p></div>
+      <div class="concept" style="background:#F1FADF"><div class="em">🔍</div><h3>Big &amp; Bold</h3><p>모든 텍스트는 한 단계 크게, 모든 버튼은 한 뼘 넓게. 작은데 흐릿한 것이 촌스러운 것입니다.</p></div>
+      <div class="concept" style="background:#FFF6DC"><div class="em">☀️</div><h3>나이를 잊는 하루</h3><p>젊음도 시니어도 부르지 않습니다. 고객은 그저 '파크골프 치는 사람' — 오늘, 좋은 날, 한 바퀴의 언어로만 말합니다.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 브랜드 마크 ═══ -->
+<section>
+  <div class="wrap">
+    <div class="lbl">MARK</div>
+    <h2>심볼 &amp; 마크</h2>
+    <p class="d">"P"형 골프그린 글리프 — 깃발과 홀컵이 들어간 P. 잔디 언덕 위에 꽂힌 오늘의 깃발입니다.</p>
+    <div class="concepts">
+      <div class="concept" style="display:flex;flex-direction:column;align-items:center;text-align:center">
+        <img src="https://parkday.kr/assets/symbol.png" alt="PARKDAY 심볼" style="width:150px;height:150px;object-fit:contain">
+        <h3 style="margin-top:10px">심볼</h3>
+        <p>단독 사용 — 파비콘, 앱 내 칩, 작은 지면.</p>
+      </div>
+      <div class="concept" style="text-align:center">
+        <img src="https://parkday.kr/assets/logo.png" alt="PARKDAY 워드마크" style="width:100%;max-width:280px;margin:6px auto 10px;display:block">
+        <img src="https://parkday.kr/icons/icon-192.png" alt="PARKDAY 앱 아이콘" style="width:96px;border-radius:var(--radius);margin:0 auto 12px;display:block">
+        <h3>워드마크 · 앱 아이콘</h3>
+        <p>워드마크는 가로형 기본. 앱 아이콘은 다크그린 라운드 배경.</p>
+      </div>
+      <div class="concept" style="background:var(--pd-mint)">
+        <div class="em">🏷️</div><h3>운영사 표기</h3>
+        <p>플랫폼(파크데이/PARKDAY)이 主. 운영사는 <b>"by IDPARK"</b>로 작게 부기 — 헤더·푸터·스토어 설명에만. 마크와 IDPARK 로고를 같은 크기로 나란히 두지 않습니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 컬러 ═══ -->
+<section>
+  <div class="wrap">
+    <div class="lbl">COLOR</div>
+    <h2>컬러 시스템 <span style="font-size:14px;font-weight:700;color:var(--pd-gray)">(칩을 클릭하면 HEX 복사)</span></h2>
+    <p class="d">바탕은 차분하게, 그린은 행동에만, 라임은 시선 한 곳에만.</p>
+    <div class="palette">
+      <div class="swatch" onclick="cp('#00A860')"><div class="c" style="background:#00A860"><span>KEY</span></div><div class="i"><b>필드 그린 #00A860</b><small>키컬러 — 주요 버튼·강조·탭 활성</small></div></div>
+      <div class="swatch" onclick="cp('#0B3D2E')"><div class="c" style="background:#0B3D2E"><span>DEEP</span></div><div class="i"><b>딥 포레스트 #0B3D2E</b><small>다크 면·아이콘 배경 — 소면적만</small></div></div>
+      <div class="swatch" onclick="cp('#A8E063')"><div class="c" style="background:#A8E063"><span>POINT</span></div><div class="i"><b>라임 #A8E063</b><small>에너지 포인트 — 배지·하이라이트</small></div></div>
+      <div class="swatch" onclick="cp('#2FA8F0')"><div class="c" style="background:#2FA8F0"><span>SUB</span></div><div class="i"><b>스카이 #2FA8F0</b><small>정보·날씨·예약 태그</small></div></div>
+      <div class="swatch" onclick="cp('#FFC83D')"><div class="c" style="background:#FFC83D"><span>SUB</span></div><div class="i"><b>선샤인 #FFC83D</b><small>혜택·데이거래·이벤트</small></div></div>
+      <div class="swatch" onclick="cp('#FAF7EC')"><div class="c" style="background:#FAF7EC;border-bottom:1px solid var(--pd-line)"><span>BG</span></div><div class="i"><b>크림 #FAF7EC</b><small>메인 배경 — 흰색보다 눈이 편안</small></div></div>
+      <div class="swatch" onclick="cp('#E2F4E8')"><div class="c" style="background:#E2F4E8;border-bottom:1px solid var(--pd-line)"><span>BG</span></div><div class="i"><b>민트 틴트 #E2F4E8</b><small>선택 상태·정보 박스 배경</small></div></div>
+      <div class="swatch" onclick="cp('#10241A')"><div class="c" style="background:#10241A"><span>TEXT</span></div><div class="i"><b>잉크 #10241A</b><small>본문 — 순검정보다 부드럽게</small></div></div>
+    </div>
+    <div class="ratio">
+      <div style="flex:6;background:#FAF7EC;color:#8a8472">크림·화이트 60%</div>
+      <div style="flex:2.5;background:#00A860">그린 25%</div>
+      <div style="flex:1;background:#A8E063;color:#0B3D2E">라임 10%</div>
+      <div style="flex:.5;background:#FFC83D;color:#5c4404">5%</div>
+    </div>
+    <div class="hint">60-25-10-5 법칙: 채도 높은 색이 촌스러워지는 건 색 때문이 아니라 '면적 배분 실패' 때문입니다.</div>
+  </div>
+</section>
+
+<!-- ═══ 타이포 ═══ -->
+<section>
+  <div class="wrap">
+    <div class="lbl">TYPOGRAPHY</div>
+    <h2>타이포그래피</h2>
+    <p class="d">서체는 Pretendard 단일 패밀리. 일반 앱보다 기본 단계가 2단계 큽니다 — 사용자는 여기에 1.15×/1.3× 배율을 더 올릴 수 있습니다.</p>
+    <div class="typo">
+      <div class="row"><div class="meta">Display · 34px · 900</div><div style="font-size:34px;font-weight:900;letter-spacing:-.02em">좋은 날엔, 파크데이 ⛳</div></div>
+      <div class="row"><div class="meta">H1 · 26px · 900</div><div style="font-size:26px;font-weight:900">내 주변 파크골프장</div></div>
+      <div class="row"><div class="meta">H2 · 21px · 800</div><div style="font-size:21px;font-weight:800">한강 파크골프장 · 18홀</div></div>
+      <div class="row"><div class="meta">Body · 18px · 500~600</div><div style="font-size:18px">표시 가격이 전부예요. 전화 한 통이면 주문됩니다.</div></div>
+      <div class="row"><div class="meta">Sub · 15px · 600</div><div style="font-size:15px;color:var(--pd-gray)">내 동네 기준 가까운 순서예요</div></div>
+      <div class="row"><div class="meta">Caption · 13px (최소)</div><div style="font-size:13px;color:var(--pd-gray)">13px 미만은 사용하지 않습니다</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 보이스 & 카피 ═══ -->
+<section>
+  <div class="wrap">
+    <div class="lbl">VOICE & COPY</div>
+    <h2>슬로건 &amp; 카피</h2>
+    <p class="d">원칙 하나: <b>나이를 부르지 않는다.</b> 오늘과 좋은 날의 언어로만 말합니다.</p>
+
+    <div class="typo" style="text-align:center;padding:44px 34px">
+      <div style="font-size:13px;font-weight:800;color:var(--pd-green);letter-spacing:.14em;margin-bottom:10px">MAIN SLOGAN</div>
+      <div style="font-size:clamp(28px,4.6vw,42px);font-weight:900;letter-spacing:-.02em">"좋은 날엔, <span style="color:var(--pd-green)">파크데이</span>"</div>
+      <p style="font-size:15px;color:var(--pd-gray);margin-top:12px">날씨 좋은 날 · 기분 좋은 날 · 친구 만나는 날 — 모든 좋은 날이 파크데이로 연결됩니다.</p>
+    </div>
+
+    <div class="typo" style="margin-bottom:16px">
+      <h3 style="font-size:19px;font-weight:900;margin-bottom:18px">라이팅 4원칙</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px">
+        <div style="background:var(--pd-mint);border-radius:var(--radius);padding:18px"><b>1. 나이를 말하지 않는다</b><p style="font-size:14px;color:var(--pd-gray);margin-top:6px">시니어·어르신·젊음·나이 표현 금지. 사용자를 특정 연령으로 구분하지 않습니다.</p></div>
+        <div style="background:#F1FADF;border-radius:var(--radius);padding:18px"><b>2. 활동의 즐거움을 말한다</b><p style="font-size:14px;color:var(--pd-gray);margin-top:6px">파크골프·산책·모임·라운딩·동네·함께 중심. 건강을 강요하지 않습니다.</p></div>
+        <div style="background:#FFF6DC;border-radius:var(--radius);padding:18px"><b>3. 명령하지 않고 권한다</b><p style="font-size:14px;color:var(--pd-gray);margin-top:6px">예약하세요 → 예약 안내를 확인해보세요<br>가입하세요 → 먼저 시작해보세요</p></div>
+        <div style="background:#E3F2FD;border-radius:var(--radius);padding:18px"><b>4. 짧고 밝게 쓴다</b><p style="font-size:14px;color:var(--pd-gray);margin-top:6px">문장은 짧게. 말투는 담백하게. 정보는 또렷하게.</p></div>
+      </div>
+    </div>
+
+    <div class="concepts" style="margin-bottom:16px">
+      <div class="concept"><h3 style="font-size:17px">카피 풀 <span style="font-size:12px;color:var(--pd-gray);font-weight:700">화면·채널별로 섞어 사용</span></h3>
+        <p style="line-height:2;font-size:14px">
+        <b>홈·푸시</b> — "오늘이 파크데이" · "오늘도 파크데이와 함께" · "우리 동네 파크골프 생활"<br>
+        <b>예약</b> — "기분 좋은 한 바퀴" · "오늘 라운딩, 어디로 갈까요?" · "가볍게 나가서, 즐겁게 한 바퀴"<br>
+        <b>클럽</b> — "함께 치면 더 즐겁습니다" ★ · "가까운 구장, 즐거운 모임" · "초록 위에서 만나요"<br>
+        <b>소개</b> — "가까운 구장과 동호회를 한 번에" · "우리 동네 파크골프, 더 쉽게"<br>
+        <b>광고</b> — "걷고, 치고, 웃고. 파크데이"</p>
+      </div>
+      <div class="concept" style="background:var(--pd-mint)"><h3 style="font-size:17px">✅ 쓰는 말</h3>
+        <p style="line-height:2">오늘 · 좋은 날 · 한 바퀴 · 만나요 · 같이 · 동네 · 초록 · 잔디 · 약속<br><b>톤:</b> 청유형 — "~어떠세요?", "~만나요". 존중하는 존댓말, 짧은 문장.</p>
+      </div>
+      <div class="concept" style="background:#FDF0ED"><h3 style="font-size:17px">🚫 안 쓰는 말</h3>
+        <p style="line-height:2">젊음 · 청춘 · 시니어 · 어르신 · 실버 · 노년<br>"건강하세요"류 (아픔을 전제)<br>사람에게 "쉬우시죠?" — 서비스가 쉬워지는 건 OK<br>나이를 느끼게 하는 모든 표현</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 컴포넌트 ═══ -->
+<section>
+  <div class="wrap">
+    <div class="lbl">COMPONENTS</div>
+    <h2>컴포넌트</h2>
+    <p class="d">터치 타겟 56px 이상 · 라운드 12px 단일 · 테두리는 1px까지 — 강조는 면과 색으로.</p>
+    <div class="demo">
+      <button class="btn b-key">⛳ 예약 안내 보기</button>
+      <button class="btn b-lime">오늘 한 바퀴 어떠세요?</button>
+      <button class="btn b-deep">📞 전화로 문의</button>
+      <button class="btn b-sun">🤝 데이거래 올리기</button>
+      <button class="btn b-line">자세히</button>
+    </div>
+    <div class="demo">
+      <button class="chipd on">10km</button>
+      <button class="chipd">30km</button>
+      <button class="chipd">전국</button>
+      <span style="width:18px"></span>
+      <span class="badge bd-mint">온라인 예약</span>
+      <span class="badge bd-sky">전화 예약</span>
+      <span class="badge bd-sun">현장 접수</span>
+      <span class="badge bd-lime">무료 나눔 💚</span>
+      <span class="badge bd-dg">협회 공인인증</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 실제 화면 ═══ -->
+<section>
+  <div class="wrap">
+    <div class="lbl">SCREENS</div>
+    <h2>실제 화면</h2>
+    <p class="d">parkday.kr 라이브 화면입니다. 좌우 버튼이나 아래 썸네일로 둘러보세요.</p>
+
+    <div class="stage">
+      <div class="sinfo">
+        <div class="step" id="sStep">SCREEN 01 / 10</div>
+        <h3 id="sTitle">온보딩</h3>
+        <p class="desc" id="sDesc">첫 진입 — 내 동네부터 설정합니다.</p>
+        <div class="tab" id="sTab"><i></i><span>시작</span></div>
+      </div>
+      <div class="phonewrap">
+        <div class="phone"><div class="screen" id="screen"></div></div>
+        <div class="snav">
+          <button id="prev" aria-label="이전 화면">‹</button>
+          <div class="dots" id="dots"></div>
+          <button id="next" aria-label="다음 화면">›</button>
+        </div>
+      </div>
+    </div>
+    <div class="strip" id="strip"></div>
+  </div>
+</section>
+
+<!-- ═══ Do / Don't ═══ -->
+<section>
+  <div class="wrap">
+    <div class="lbl">RULES</div>
+    <h2>Do &amp; Don't</h2>
+    <p class="d" style="margin-bottom:22px"></p>
+    <div class="dd">
+      <div class="ddc do">
+        <h4>✅ 이렇게</h4>
+        <ul>
+          <li>그린은 '행동'(버튼·활성)에만 — 키컬러가 길잡이가 되도록</li>
+          <li>라임은 화면당 한 곳, 가장 중요한 한 가지에만</li>
+          <li>크림 배경 위 흰 카드 — 부드러운 깊이감</li>
+          <li>큰 글자 + 충분한 행간 + 잉크색 텍스트</li>
+          <li>라운드는 12px 하나로 통일 — 곡률의 일관성이 고급감을 만든다</li>
+          <li>아이콘은 텍스트 라벨과 항상 병기</li>
+        </ul>
+      </div>
+      <div class="ddc dont">
+        <h4>🚫 이렇게는 금지</h4>
+        <ul>
+          <li>그린+라임+옐로+스카이 동시 사용 (양념은 2개까지)</li>
+          <li>13px 미만 텍스트, 56px 미만 버튼</li>
+          <li>저대비 조합 (라임 위 흰 글자, 크림 위 옐로 글자)</li>
+          <li>'어르신용' 같은 표현 — 나이를 부르지 않습니다</li>
+          <li>화면마다 다른 라운드 값 혼용, 2px 이상 아웃라인</li>
+          <li>유아체 말투("~해용") — 담백한 존댓말로</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <img src="https://parkday.kr/assets/symbol.png" alt="" style="width:42px;margin-bottom:10px"><br>
+  <b style="color:var(--pd-ink)">PARKDAY 파크데이</b> · 좋은 날엔, 파크데이<br>
+  <a href="https://parkday.kr" target="_blank">parkday.kr</a> · <a href="/idpark_brand.html">IDPARK 브랜드 가이드 →</a> · ⓒ 2026 IDPARK
+</footer>
+
+<div class="toast" id="toast">복사됨!</div>
+<script>
+function cp(hex){
+  navigator.clipboard?.writeText(hex);
+  const t=document.getElementById('toast');
+  t.textContent=hex+' 복사됨!';
+  t.classList.add('on');
+  setTimeout(()=>t.classList.remove('on'),1200);
+}
+
+// ───── 실제 화면 캐러셀 ─────
+const BASE='https://parkday.kr/assets/marketing/';
+const SCREENS=[
+  {img:'01_onboarding.png',title:'온보딩',desc:'첫 진입 — 내 동네부터 설정합니다.',tab:'시작'},
+  {img:'02_home.png',title:'예약 홈',desc:'내 주변 파크골프장을 가까운 순으로. 10km·30km·전국.',tab:'예약'},
+  {img:'03_course-detail.png',title:'구장 상세',desc:'홀 수·이용료·운영시간과 예약 안내를 한 화면에.',tab:'예약'},
+  {img:'04_ticket.png',title:'예약 메모',desc:'예약 내용을 메모로 보관 — 잊지 않게.',tab:'예약'},
+  {img:'05_shop.png',title:'상품 — 단가표',desc:'표시 가격이 전부. 전화 한 통으로 바로 주문.',tab:'상품'},
+  {img:'06_club.png',title:'클럽 목록',desc:'우리 동네 클럽 — 함께 치면 더 즐겁습니다.',tab:'클럽'},
+  {img:'07_club-home.png',title:'클럽 홈',desc:'공지 · 벙개/정모 · 갤러리를 클럽별로.',tab:'클럽'},
+  {img:'08_deal.png',title:'데이거래',desc:'동네 이웃과 파크골프 용품 직거래 · 무료나눔.',tab:'데이거래'},
+  {img:'09_deal-detail.png',title:'거래글 상세',desc:'사진·가격·상태를 보고 채팅으로 바로 연결.',tab:'데이거래'},
+  {img:'10_my.png',title:'내 정보',desc:'전화번호만으로 시작 · 글자 크기 조절까지.',tab:'내 정보'},
+];
+const screen=document.getElementById('screen'),dots=document.getElementById('dots'),strip=document.getElementById('strip');
+const sStep=document.getElementById('sStep'),sTitle=document.getElementById('sTitle'),sDesc=document.getElementById('sDesc'),sTab=document.getElementById('sTab');
+SCREENS.forEach((s,i)=>{
+  const im=document.createElement('img');im.src=BASE+s.img;im.alt=s.title;im.loading=i===0?'eager':'lazy';screen.appendChild(im);
+  const d=document.createElement('i');d.addEventListener('click',()=>goTo(i));dots.appendChild(d);
+  const t=document.createElement('button');t.className='thumb';
+  t.innerHTML='<img src="'+BASE+s.img+'" alt="'+s.title+'" loading="lazy">';
+  t.addEventListener('click',()=>{goTo(i);document.getElementById('screen').scrollIntoView({behavior:'smooth',block:'center'})});
+  strip.appendChild(t);
+});
+let cur=0;
+const imgs=screen.querySelectorAll('img'),dotEls=dots.querySelectorAll('i'),thumbEls=strip.querySelectorAll('.thumb');
+function goTo(i){
+  cur=(i+SCREENS.length)%SCREENS.length;
+  const s=SCREENS[cur];
+  imgs.forEach((im,k)=>im.classList.toggle('on',k===cur));
+  dotEls.forEach((d,k)=>d.classList.toggle('on',k===cur));
+  thumbEls.forEach((t,k)=>t.classList.toggle('on',k===cur));
+  sStep.textContent='SCREEN '+String(cur+1).padStart(2,'0')+' / '+String(SCREENS.length).padStart(2,'0');
+  sTitle.textContent=s.title;sDesc.textContent=s.desc;sTab.querySelector('span').textContent=s.tab;
+}
+document.getElementById('prev').addEventListener('click',()=>goTo(cur-1));
+document.getElementById('next').addEventListener('click',()=>goTo(cur+1));
+document.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')goTo(cur-1);if(e.key==='ArrowRight')goTo(cur+1)});
+let x0=null;
+screen.addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passive:true});
+screen.addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40)goTo(cur+(dx<0?1:-1));x0=null},{passive:true});
+goTo(0);
+</script>
+</body>
+</html>
