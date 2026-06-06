@@ -7,9 +7,18 @@
 <meta name="description" content="내 동네 파크골프장 찾기·예약 안내·용품 단가표·동호회. 시니어를 위해 크게, 간단하게 만든 파크골프 앱 파크데이.">
 <meta name="theme-color" content="#00B468">
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" type="image/svg+xml" href="assets/symbol.svg">
+<link rel="icon" type="image/png" href="assets/symbol.png">
 <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
 <link rel="apple-touch-icon" href="icons/icon-192.png">
+<!-- 공유 미리보기 (카카오톡·SNS) -->
+<meta property="og:title" content="파크데이 — 좋은 날엔, 파크데이">
+<meta property="og:description" content="내 주변 파크골프장 찾기·예약 안내·용품 단가표·동호회·데이거래">
+<meta property="og:image" content="https://parkday.kr/assets/og-banner.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://parkday.kr">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
 <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
 <link rel="stylesheet" href="css/app.css">
 </head>
@@ -18,7 +27,7 @@
 <!-- ═══ 온보딩: 당근식 동네 설정 ═══ -->
 <div class="onboard" id="onboard">
   <div class="inner">
-    <div class="ob-badge"><img src="assets/symbol.svg" alt="파크데이" width="64" height="64"></div>
+    <div class="ob-badge"><img src="assets/symbol.png" alt="파크데이" width="64" height="64"></div>
     <h1>파크데이</h1>
     <p>기분 좋은 한 바퀴, 시작해 볼까요?<br>먼저 내 동네부터 알려주세요.</p>
     <button class="btn btn-gold" onclick="App.setLocation()">📍 내 동네 설정하기</button>
@@ -30,7 +39,7 @@
 
   <!-- ═══ 헤더 ═══ -->
   <header class="top">
-    <span class="logo-chip"><img src="assets/symbol.svg" alt="" width="28" height="28"></span>
+    <span class="logo-chip"><img src="assets/symbol.png" alt="" width="28" height="28"></span>
     <div>
       <div class="brand">파크데이</div>
       <div class="by">PARKDAY <span class="by-op">by <a href="https://idpark.vercel.app/" target="_blank" rel="noopener noreferrer">IDPARK</a></span></div>

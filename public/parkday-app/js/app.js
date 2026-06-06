@@ -31,7 +31,16 @@ const App = {
     this.renderShop('all');
     this.renderClubs();
     this.renderDeals();
-    /* 서비스워커 등록 비활성화 (idpark.vercel.app에 임베드된 사본 — 캐시 꼬임 방지) */
+    if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(()=>{});
+    // 데스크톱: 가로 스크롤 영역(슬라이더·필터칩)에서 마우스 휠 → 가로 이동
+    // (모바일 터치 스와이프는 원래대로 동작, 칩 클릭에는 영향 없음)
+    document.addEventListener('wheel', (e) => {
+      const sc = e.target.closest && e.target.closest('.slider, .chips, .quick');
+      if (sc && sc.scrollWidth > sc.clientWidth + 4 && Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+        sc.scrollLeft += e.deltaY;
+        e.preventDefault();
+      }
+    }, { passive: false });
   },
 
   save() { localStorage.setItem('pd_state', JSON.stringify(this.state)); },
