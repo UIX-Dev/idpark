@@ -43,7 +43,7 @@ lib/
 └─ portfolio.ts        납품 실적 데이터 (예시 — 실제 내역으로 교체 필요)
 
 public/assets/img/      사이트에서 사용하는 이미지 (products/, photos/)
-assets/                 원본 보존용 아카이브 (product_original/, photo_original/, std/) — 서빙·배포 안 됨
+assets/                 원본 보존용 아카이브 (product_original/, photo_original/) — 서빙·배포 안 됨
 ```
 
 ## 콘텐츠 추가 가이드

@@ -1,0 +1,11 @@
+Remove redundant assets/std intermediate archive
+
+- assets/std (87 files: 35 std photos + 50 std products + 2 preview
+  sheets) is fully redundant now that originals (*_original) and final
+  web sets (public/assets/img) both exist. Recoverable via git history.
+- Update MAPPING.md and README to drop std references.
+
+Archive is now: assets/{photo_original, product_original} (sources) +
+public/assets/img/{photos, products} (final semantic web set).
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>

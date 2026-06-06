@@ -1,6 +1,6 @@
 # 에셋 매핑 (std 규격화본 → img 시맨틱 네이밍)
 
-생성: 2026-06-06 (2026-06-07 갱신) · 원본은 `assets/product_original/`, `assets/photo_original/` 보존 · `assets/std/`는 중간 규격화본(현재는 redundant)
+생성: 2026-06-06 (2026-06-07 갱신) · 원본은 `assets/product_original/`, `assets/photo_original/` 보존 · 중간본 `assets/std/`는 2026-06-07 제거(원본+최종본 존재로 redundant)
 
 ## products (800×800, 무업스케일·흰배경 정사각 — 2026-06-07 원본에서 재생성)
 <!-- 원본이 대부분 600~750px라 1200은 업스케일(흐림)이었음 → 원본 해상도 한도 내 800 정사각으로 재생성. 장기적으로는 재촬영 권장. 파일명은 동일 유지(코드 무변경). -->
