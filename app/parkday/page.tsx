@@ -56,7 +56,7 @@ export default function ParkdayPage() {
           <div className="pd-herogrid">
             <div>
               <span className="pd-tag">
-                <img src="/brand/parkday-mark.svg" alt="" />
+                <img src="/brand/parkday-symbol.png" alt="" />
                 PARKDAY · by IDPARK
               </span>
               <h1>
@@ -143,7 +143,7 @@ export default function ParkdayPage() {
       {/* 마감 CTA */}
       <div className="pd-cta">
         <div className="wrap">
-          <img src="/brand/parkday-mark.svg" alt="" className="pd-cta-mark" />
+          <img src="/brand/parkday-symbol.png" alt="" className="pd-cta-mark" />
           <h2>
             좋은 날엔, <span className="lime">파크데이</span>
           </h2>

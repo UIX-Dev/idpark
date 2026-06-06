@@ -7,7 +7,7 @@ import Link from 'next/link';
 export default function ParkdayFab() {
   return (
     <Link href="/parkday" className="pd-fab" aria-label="파크데이 — 동호인 서비스 보기">
-      <img src="/brand/parkday-mark.svg" alt="" className="pd-fab-mark" />
+      <img src="/brand/parkday-symbol.png" alt="" className="pd-fab-mark" />
       <span className="pd-fab-tx">
         <b>좋은 날엔, 파크데이</b>
         <small>동호인 서비스 보기 →</small>
