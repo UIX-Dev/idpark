@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="PARKDAY">
+  <defs>
+    <clipPath id="pdm-tile"><rect x="40" y="40" width="432" height="432" rx="108"/></clipPath>
+  </defs>
+  <rect x="40" y="40" width="432" height="432" rx="108" fill="#0B3D2E"/>
+  <g clip-path="url(#pdm-tile)">
+    <ellipse cx="278" cy="432" rx="168" ry="122" fill="#8CC63F"/>
+    <rect x="150" y="132" width="66" height="248" rx="16" fill="#FFFFFF"/>
+    <circle cx="238" cy="205" r="95" fill="#FFFFFF"/>
+    <circle cx="256" cy="198" r="44" fill="#0B3D2E"/>
+    <rect x="247" y="150" width="14" height="214" rx="5" fill="#FFFFFF"/>
+    <polygon points="261,158 261,206 316,182" fill="#34A24A"/>
+    <ellipse cx="252" cy="372" rx="48" ry="18" fill="#FFFFFF"/>
+  </g>
+</svg>

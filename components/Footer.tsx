@@ -20,6 +20,9 @@ export default function Footer({ variant = 'compact' }: { variant?: 'compact' | 
             <Link href="/portfolio">납품·시공 실적</Link>
             <Link href="/company">회사소개</Link>
             <Link href="/contact">견적 요청</Link>
+            <Link href="/parkday" className="foot-parkday">
+              파크데이 <span>by IDPARK</span>
+            </Link>
           </div>
           <div>
             <h5>문의</h5>

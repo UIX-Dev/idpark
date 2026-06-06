@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Footer from '@/components/Footer';
+import ParkdayFab from '@/components/ParkdayFab';
 
 const TRUST = [
   { num: '자체 공장', lbl: '경남 직영 생산시설 — 납기·커스텀 대응' },
@@ -223,6 +224,7 @@ export default function Home() {
       </section>
 
       <Footer variant="full" />
+      <ParkdayFab />
     </>
   );
 }
