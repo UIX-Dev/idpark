@@ -191,6 +191,7 @@ export default function Home() {
       <section className="alt">
         <div className="wrap">
           <div className="b2c reveal">
+            <img src="/brand/parkday-symbol.svg" alt="파크데이" className="b2c-symbol" />
             <div className="tx">
               <span className="badge b-o">파크골프 동호인이신가요?</span>
               <h3>
@@ -202,10 +203,9 @@ export default function Home() {
                 한 통이면 주문됩니다.
               </p>
             </div>
-            {/* TODO: 파크데이 오픈 시 실제 URL로 교체 (parkday.kr) */}
-            <a href="#" className="btn btn-orange">
+            <Link href="/parkday" className="btn btn-orange">
               파크데이 구경해보세요 →
-            </a>
+            </Link>
           </div>
         </div>
       </section>

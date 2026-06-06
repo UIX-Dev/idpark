@@ -145,6 +145,7 @@ table.list tr:hover td{background:#f5fbf6}
 
 /* ───── B2C 배너(파크데이) — 선샤인 톤 ───── */
 .b2c{background:linear-gradient(135deg,#FFF8E6,var(--orange-light));border:1px solid #F2E3BC;border-radius:var(--radius-lg);padding:36px;display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+.b2c-symbol{width:76px;height:76px;flex-shrink:0;display:block}
 .b2c .tx{flex:1;min-width:260px}
 .b2c h3{font-size:23px;font-weight:900;margin-bottom:6px}
 .b2c .b2c-slogan{font-size:18px;font-weight:900;color:#b9821a;margin:2px 0 8px}
