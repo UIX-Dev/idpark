@@ -258,3 +258,29 @@ footer .legal{border-top:1px solid rgba(255,255,255,.15);padding-top:24px;font-s
 /* 푸터 파크데이 링크 (미니멀) */
 footer a.foot-parkday{font-weight:800}
 footer a.foot-parkday span{font-size:11px;color:var(--lime);font-weight:700;margin-left:4px}
+
+/* ═══════════════════════════════════════════
+   찐막사 — IDPARK 트로트 행사 사업 (페스티브 테마)
+   ※ 스캐폴드: 색·카피는 추후 확정
+   ═══════════════════════════════════════════ */
+.zm{--zm:#B11E45;--zm-dark:#4A0E22;--zm-deep:#2E0815;--zm-gold:#FFC83D}
+.zm-hero{background:linear-gradient(155deg,var(--zm-deep) 0%,var(--zm-dark) 48%,var(--zm) 100%);color:#fff;padding:96px 0 84px;position:relative;overflow:hidden}
+.zm-hero::after{content:'';position:absolute;right:-120px;bottom:-180px;width:520px;height:520px;border-radius:50%;background:rgba(255,200,61,.08)}
+.zm-hero .eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.32);padding:6px 16px;border-radius:var(--radius);font-size:14px;font-weight:700;margin-bottom:22px}
+.zm-hero h1{font-size:clamp(40px,7vw,72px);font-weight:900;line-height:1.05;letter-spacing:-.02em;margin-bottom:10px}
+.zm-slogan{font-size:clamp(18px,2.6vw,26px);font-weight:900;color:var(--zm-gold);margin-bottom:18px}
+.zm-hero p.lead{font-size:clamp(17px,2vw,20px);opacity:.92;max-width:620px;margin-bottom:34px}
+.zm-btn-primary{background:var(--zm-gold);color:var(--zm-dark) !important}
+.zm-btn-primary:hover{filter:brightness(1.04)}
+.zm-btn-ghost{background:transparent;color:#fff !important;border:1.5px solid rgba(255,255,255,.6)}
+.zm .sec-label{color:var(--zm)}
+.zm .card .ico,.zm .zm-ico{font-size:38px;line-height:1}
+.zm .more{color:var(--zm) !important;font-weight:800}
+.zm .step::before{background:var(--zm)}
+.zm-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:8px}
+.zm-shot{aspect-ratio:4/3;border:1px dashed #e3c9d2;background:linear-gradient(135deg,#fbeef2,#fff5e6);border-radius:var(--radius-lg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:#a36b7c;text-align:center;font-weight:700}
+.zm-shot .e{font-size:34px;opacity:.6}
+.zm-shot small{font-size:12.5px;font-weight:600;opacity:.85}
+.zm-cta{background:linear-gradient(135deg,var(--zm-dark),var(--zm));color:#fff;border-radius:var(--radius-lg);padding:48px 36px;text-align:center}
+.zm-cta h2{font-size:clamp(24px,3vw,32px);font-weight:900;margin-bottom:8px}
+.zm-cta p{color:rgba(255,255,255,.85);margin-bottom:24px}
