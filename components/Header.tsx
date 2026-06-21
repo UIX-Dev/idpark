@@ -15,6 +15,9 @@ export default function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
+  // 찐막사는 자체 완결형 몰입 페이지 — 전역 헤더 숨김
+  if (pathname === '/zzinmaksa') return null;
+
   const isActive = (href: string) =>
     href === '/' ? pathname === '/' : pathname.startsWith(href);
 
