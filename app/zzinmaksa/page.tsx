@@ -97,7 +97,6 @@ export default function ZzinmaksaPage() {
             <a href="https://idpark.vercel.app" target="_blank" rel="noopener noreferrer">
               아이디파크 IDPARK
             </a>
-            <a href="mailto:kkal.artist@gmail.com">프로그램·섭외 문의 ✉️</a>
           </div>
           <div className="zz-cr">
             좋은 날엔, 파크데이
