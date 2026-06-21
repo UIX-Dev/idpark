@@ -1,109 +1,162 @@
-import type { Metadata, Viewport } from 'next';
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: '찐막사 — 진짜 마지막 사랑 | 아이디파크',
+  title: '찐막사 파크데이 — 공원에서 치고, 노래하고, 웃는 하루 | 아이디파크',
   description:
-    '찐막사(진짜 마지막 사랑) — 이화. 공원에서 치고, 노래하고, 웃는 하루, 찐막사 파크데이. by 파크데이 · 아이디파크',
+    '찐막사 파크데이 — 파크골프 한 바퀴 + 노래 한 곡 + 동네 시상까지. 대회가 아니라 동네 축제. 공원형 생활 예능 축제를 우리 동네 공원에서. by 파크데이 · 아이디파크',
   openGraph: {
-    title: '찐막사 — 진짜 마지막 사랑',
+    title: '찐막사 파크데이 — 공원형 생활 예능 축제',
     description: '공원에서 치고, 노래하고, 웃는 하루 — 찐막사 파크데이',
     url: 'https://idpark.vercel.app/zzinmaksa',
-    images: ['https://parkday.kr/assets/brand/og-banner.png'],
-    type: 'music.song',
+    type: 'website',
   },
-  twitter: { card: 'summary_large_image' },
 };
 
-export const viewport: Viewport = { themeColor: '#FF7EC0' };
+/* 찐막사 파크데이 행사 소개 (핸드오프 §5: 공원형 생활 예능 축제) */
 
-/* 찐막사 — 진짜 마지막 사랑 (이화 자작곡, 아이디파크 권리 보유)
-   출처: zzinmaksa-handoff.md · 핑크 음악 랜딩 */
+const PROGRAM = [
+  {
+    n: '1부',
+    h: '파크골프 체험 · 미니게임',
+    p: '처음이어도 괜찮아요. 가볍게 한 바퀴 돌고, 누구나 즐기는 미니게임으로 몸풀기.',
+  },
+  {
+    n: '2부',
+    h: '찐막사 노래자랑',
+    p: '찐막사 1절만! 빠르게 진행되는 동네 노래자랑. 박수와 떼창으로 한바탕.',
+  },
+  {
+    n: '3부',
+    h: '동네 시상식',
+    p: '찐막킹·찐막퀸·찐막골… 등수보다 재미. 모두가 주인공인 시상식.',
+  },
+];
+
+const FAMILY = [
+  { b: '찐막사', s: '진짜 마지막 사랑 · 행사 주제가(앤섬)' },
+  { b: '찐막상', s: '진짜 마지막 상 · 대상 시상' },
+  { b: '찐막킹 · 찐막퀸', s: '노래자랑 우승자' },
+  { b: '찐막골', s: '홀인원 · 퍼팅상' },
+  { b: '찐막샷', s: '포토존 인증샷' },
+  { b: '찐막콜', s: '전화 주문 · 행사 등록' },
+];
 
 export default function ZzinmaksaPage() {
   return (
-    <div className="zz">
-      <div className="zz-wrap">
-        {/* 히어로 */}
-        <header className="zz-hero">
-          <div className="zz-hearts" aria-hidden="true">
-            <span>💗</span>
-            <span>💜</span>
-            <span>💖</span>
-            <span>💕</span>
-            <span>🩷</span>
-          </div>
-          <div className="zz-eyebrow">이화 · 자작곡</div>
-          <h1 className="zz-title">
-            찐<span className="hb">♥</span>막사
-          </h1>
-          <p className="zz-subt">진짜 마지막 사랑</p>
-          {/* TODO: ▶ 들어보기 — 음원/유튜브 링크 연결 */}
-          <a className="zz-play" href="#" aria-label="찐막사 들어보기">
-            ▶ 들어보기
-          </a>
-        </header>
-
-        {/* 가사 */}
-        <section className="zz-block">
-          <h2 className="zz-sec">가사</h2>
-          <div className="zz-cap">찐막사 — 진짜 마지막 사랑</div>
-          <div className="zz-ly">
-            <span className="zz-lab">1절</span>
-            {'\n한 번의 사랑은 가고\n두 번의 사랑도 가고\n세 번째 찾아온 그대\n내 마지막 사랑이여'}
-          </div>
-          <div className="zz-chorus">
-            <span className="zz-lab">후렴</span>
-            <div className="zz-ly" style={{ fontWeight: 800, color: '#fff' }}>
-              {'찐막사, 내 진짜, 찐 사랑아\n이제는 다신 놓지 않을래\n찐막사, 내 진짜, 찐 사랑아\n당신과 영원히 함께할래'}
-            </div>
-          </div>
-          <div className="zz-ly">
-            <span className="zz-lab">2절</span>
-            {'\n눈물의 강을 건너\n외로움의 산을 넘어\n드디어 만난 그대\n내 운명의 사랑이여'}
-          </div>
-          <div className="zz-ly">
-            <span className="zz-lab">브릿지</span>
-            {'\n이제 더는 방황 없네\n그대와 함께라면\n우리 둘이 걸어가는\n사랑의 길 영원하리'}
-          </div>
-          <p className="zz-repeat">— 후렴 반복 —</p>
-        </section>
-
-        {/* 찐막사 파크데이 (이벤트) */}
-        <section style={{ padding: '0 0 8px' }}>
-          <div className="zz-event">
-            <h2>찐막사 파크데이</h2>
-            <p>
-              공원에서 치고, 노래하고,
-              <br />
-              동네 사람들과 웃는 하루
-            </p>
-            <div className="zz-fam">
-              <b>찐막사 · 진짜 마지막 사랑</b>
-              <b>찐막상 · 진짜 마지막 상</b>
-              <b>찐막!</b>
-            </div>
-            <a className="zz-cta" href="https://parkday.kr">
+    <div className="zev">
+      {/* 히어로 */}
+      <div className="zev-hero">
+        <div className="wrap">
+          <span className="eyebrow">🎪 IDPARK · 파크데이 행사</span>
+          <h1>찐막사 파크데이</h1>
+          <p className="zev-slogan">공원에서 치고, 노래하고, 웃는 하루</p>
+          <p className="lead">
+            파크골프 한 바퀴 + 노래 한 곡 + 동네 사람들과 웃는 하루. <b>대회가 아니라 축제예요.</b>{' '}
+            우리 동네 공원에서 여는 공원형 생활 예능 축제, 찐막사 파크데이.
+          </p>
+          <div className="actions">
+            <a href="tel:07074644466" className="btn zev-btn-primary">
+              📞 행사·협력 문의
+            </a>
+            <a href="https://parkday.kr" className="btn zev-btn-ghost" target="_blank" rel="noreferrer">
               ⛳ 파크데이 보러가기
             </a>
           </div>
-        </section>
-
-        {/* 푸터 */}
-        <footer className="zz-foot">
-          <div className="zz-links">
-            <a href="https://parkday.kr" target="_blank" rel="noopener noreferrer">
-              파크데이 parkday.kr
-            </a>
-            <a href="https://idpark.vercel.app" target="_blank" rel="noopener noreferrer">
-              아이디파크 IDPARK
-            </a>
-          </div>
-          <div className="zz-cr">
-            좋은 날엔, 파크데이
-            <br />ⓒ 2026 IDPARK
-          </div>
-        </footer>
+        </div>
       </div>
+
+      {/* 행사 소개 */}
+      <section>
+        <div className="wrap">
+          <div className="sec-label">ABOUT</div>
+          <h2 className="sec-title">대회가 아니라, 동네 축제예요</h2>
+          <p className="sec-desc">
+            잘 치는 사람을 가리는 자리가 아니라, 함께 나와 즐기는 자리예요. 파크골프가 처음인
+            어르신도, 동네 이웃도 가볍게 나와 한바탕 웃고 갑니다. 크게 시작하지 않아요 —{' '}
+            <b>한 개 공원 파일럿</b>으로 작게 검증하며 키웁니다.
+          </p>
+        </div>
+      </section>
+
+      {/* 3부 프로그램 */}
+      <section className="alt">
+        <div className="wrap">
+          <div className="sec-label">PROGRAM</div>
+          <h2 className="sec-title">하루 3부 구성</h2>
+          <p className="sec-desc">치고 → 노래하고 → 시상까지. 한나절이면 충분합니다.</p>
+          <div className="cards">
+            {PROGRAM.map((p) => (
+              <div className="card" key={p.n}>
+                <div className="zev-num">{p.n}</div>
+                <h3>{p.h}</h3>
+                <p>{p.p}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 찐막 패밀리 */}
+      <section>
+        <div className="wrap">
+          <div className="sec-label">BRAND</div>
+          <h2 className="sec-title">찐막 패밀리</h2>
+          <p className="sec-desc">
+            외우기 쉬운 “찐막 + 한 글자”. 행사 곳곳에서 쓰는 우리만의 브랜드 언어예요.
+          </p>
+          <div className="zev-fam">
+            {FAMILY.map((f) => (
+              <div className="f" key={f.b}>
+                <b>{f.b}</b>
+                <span>{f.s}</span>
+              </div>
+            ))}
+          </div>
+          <div className="zev-chant">📣 떼창 구호 — MC “찐~막!” / 다같이 “사랑!” · 엔딩은 “찐! 막! 사!”</div>
+        </div>
+      </section>
+
+      {/* 파크데이 연결 */}
+      <section className="alt">
+        <div className="wrap">
+          <div className="zev-pd">
+            <h3>찐막사는 파크데이와 함께</h3>
+            <p>행사 예약·구장 정보·용품은 파크데이에서. 좋은 날엔, 파크데이.</p>
+            <a
+              href="https://parkday.kr"
+              className="btn zev-btn-primary"
+              target="_blank"
+              rel="noreferrer"
+            >
+              ⛳ 파크데이 바로가기
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* 마감 CTA — 지자체·구장 협력 */}
+      <section>
+        <div className="wrap">
+          <div className="zev-cta">
+            <h2>우리 동네 공원에서 열어볼까요?</h2>
+            <p>
+              지자체·구장·동호회와 함께 여는 작은 축제부터. 일정·장소만 알려주셔도 됩니다. 상담은
+              무료예요.
+            </p>
+            <a
+              href="tel:07074644466"
+              className="btn zev-btn-primary"
+              style={{ fontSize: 18, padding: '16px 36px' }}
+            >
+              📞 행사·협력 문의
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
     </div>
   );
 }
